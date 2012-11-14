@@ -13,9 +13,12 @@
     <color name="white">#FFFFFF</color>
     <string name="threedps">3DPartsource</string>
     <string name="archisource">3DArchisource</string>
-    <string name="mechasource">3DMechasource</string>
+    <string name="printsource">3DPrintrource</string>
     <string name="scisource">3DScisource</string>
     <string name="gamesource">3DGamesource</string>
     <string name="robosource">3DRobosource</string>
+    <string name="textsearch">Your Text Search</string>
+    <string name="app_search">3D Search</string>
+    <string name="upload">Upload a model</string>
 
 </resources>

@@ -3,6 +3,7 @@ package com.threedindustries.mobile;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -15,10 +16,12 @@ import android.widget.Toast;
 public class HomeActivity extends Activity {
 	
 	Intent intent;
-
+	private static final String TAG = "3DI Home Activity";
+	
     @Override  
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(TAG, "OnCreate 3DI App");
         setContentView(R.layout.home_activity);
    }
     

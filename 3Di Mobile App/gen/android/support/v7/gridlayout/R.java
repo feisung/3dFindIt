@@ -239,14 +239,19 @@ containing a value of this type.
         public static final int image4760=0x7f02000f;
         public static final int industry_four=0x7f020010;
         public static final int industry_six=0x7f020011;
-        public static final int other_industry=0x7f020012;
-        public static final int robosource=0x7f020013;
-        public static final int search_button=0x7f020014;
-        public static final int splash=0x7f020015;
-        public static final int three_di_logo=0x7f020016;
-        public static final int threedilogo_mdpi=0x7f020017;
-        public static final int threedps_image=0x7f020018;
-        public static final int upload_button=0x7f020019;
+        public static final int loading=0x7f020012;
+        public static final int logo=0x7f020013;
+        public static final int other_industry=0x7f020014;
+        public static final int robosource=0x7f020015;
+        public static final int search=0x7f020016;
+        public static final int search_button=0x7f020017;
+        public static final int search_icon=0x7f020018;
+        public static final int splash=0x7f020019;
+        public static final int three_di_logo=0x7f02001a;
+        public static final int threedilogo_mdpi=0x7f02001b;
+        public static final int threedps_image=0x7f02001c;
+        public static final int upload_button=0x7f02001d;
+        public static final int upload_img=0x7f02001e;
     }
     public static final class id {
         public static final int FirstRow=0x7f040014;
@@ -259,6 +264,7 @@ containing a value of this type.
         public static final int LinearLayout02=0x7f040021;
         public static final int LinearLayout1=0x7f040013;
         public static final int SecondRow=0x7f040019;
+        public static final int TextSearch=0x7f04002b;
         public static final int TextView01=0x7f04001c;
         public static final int TextView02=0x7f04001f;
         public static final int TextView03=0x7f040018;
@@ -266,7 +272,8 @@ containing a value of this type.
         public static final int TextView05=0x7f040026;
         public static final int TextView06=0x7f040023;
         public static final int ThirdRow=0x7f040020;
-        public static final int UploadButton=0x7f040029;
+        public static final int Upload=0x7f04002f;
+        public static final int UploadButton=0x7f040028;
         public static final int alignBounds=0x7f040002;
         public static final int alignMargins=0x7f040003;
         public static final int bottom=0x7f040005;
@@ -275,23 +282,26 @@ containing a value of this type.
         public static final int center_vertical=0x7f040008;
         public static final int clip_horizontal=0x7f04000f;
         public static final int clip_vertical=0x7f04000e;
+        public static final int editText1=0x7f04002d;
         public static final int end=0x7f040011;
         public static final int fill=0x7f04000d;
         public static final int fill_horizontal=0x7f04000b;
         public static final int fill_vertical=0x7f040009;
-        public static final int gallery1=0x7f040027;
         public static final int gridview=0x7f04002a;
         public static final int horizontal=0x7f040000;
         public static final int imageView1=0x7f04001e;
+        public static final int imageView2=0x7f040030;
         public static final int ind3=0x7f04001a;
         public static final int left=0x7f040006;
-        public static final int linearLayout1=0x7f04002b;
-        public static final int menu_search=0x7f04002d;
-        public static final int menu_settings=0x7f04002c;
+        public static final int menu_search=0x7f040032;
+        public static final int menu_settings=0x7f040031;
+        public static final int progressBar1=0x7f040029;
         public static final int right=0x7f040007;
         public static final int scrollView1=0x7f040012;
-        public static final int searchButton=0x7f040028;
+        public static final int searchButton=0x7f040027;
         public static final int start=0x7f040010;
+        public static final int textView1=0x7f04002c;
+        public static final int textView3=0x7f04002e;
         public static final int threedarchisource=0x7f04001d;
         public static final int top=0x7f040004;
         public static final int vertical=0x7f040001;
@@ -308,19 +318,22 @@ containing a value of this type.
     }
     public static final class string {
         public static final int app_name=0x7f060000;
+        public static final int app_search=0x7f06000f;
         public static final int archisource=0x7f060009;
         public static final int button2=0x7f060006;
         public static final int gamesource=0x7f06000c;
         public static final int hello_world=0x7f060001;
         public static final int home=0x7f060005;
         public static final int industry_home=0x7f060007;
-        public static final int mechasource=0x7f06000a;
         public static final int menu_settings=0x7f060002;
+        public static final int printsource=0x7f06000a;
         public static final int robosource=0x7f06000d;
         public static final int scisource=0x7f06000b;
+        public static final int textsearch=0x7f06000e;
         public static final int threedps=0x7f060008;
         public static final int title_activity_splash=0x7f060003;
         public static final int title_app=0x7f060004;
+        public static final int upload=0x7f060010;
     }
     public static final class style {
         public static final int AppTheme=0x7f080000;
