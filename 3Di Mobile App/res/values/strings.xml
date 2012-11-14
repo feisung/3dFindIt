@@ -9,5 +9,6 @@
     <string name="button2">Next Activity</string>
     <color name="black">#000000</color>
     <string name="industry_home">Industry</string>
+    <color name="grey_background">#4d4c4e</color>
 
 </resources>

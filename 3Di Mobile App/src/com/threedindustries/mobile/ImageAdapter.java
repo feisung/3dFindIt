@@ -33,7 +33,7 @@ public class ImageAdapter extends BaseAdapter {
         if (convertView == null) {  // if it's not recycled, initialize some attributes
             imageView = new ImageView(mContext);
             imageView.setLayoutParams(new GridView.LayoutParams(225, 225));
-            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             imageView.setPadding(0, 0, 0, 0);
         } else {
             imageView = (ImageView) convertView;
@@ -45,9 +45,9 @@ public class ImageAdapter extends BaseAdapter {
 
     // references to our images
     private Integer[] mThumbIds = {
-            R.drawable.img1, R.drawable.img2,
-            R.drawable.img3, R.drawable.img4,
-            R.drawable.img5, R.drawable.img6,
+            R.drawable.threedps_image, R.drawable.other_industry,
+            R.drawable.archisource, R.drawable.industry_four,
+            R.drawable.robosource, R.drawable.industry_six,
     };
 
 }

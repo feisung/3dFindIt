@@ -13,6 +13,9 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 public class HomeActivity extends Activity {
+	
+	Intent intent;
+
     @Override  
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +28,10 @@ public class HomeActivity extends Activity {
 
 			public void onItemClick(AdapterView<?> parent, View v, int position,
 					long id) {
-				Toast.makeText(HomeActivity.this, "" + position, Toast.LENGTH_SHORT).show();
+				intent = new Intent(HomeActivity.this, IndustryActivity.class);
+	            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+	            startActivity(intent);
+				//Toast.makeText(HomeActivity.this, "" + position, Toast.LENGTH_SHORT).show();
 				
 			}
         });
@@ -39,7 +45,6 @@ public class HomeActivity extends Activity {
     }
     
 	public boolean onOptionsItemSelected(MenuItem item){
-		Intent intent;
 		
     	//Handling the different menu items
 		switch (item.getItemId()){

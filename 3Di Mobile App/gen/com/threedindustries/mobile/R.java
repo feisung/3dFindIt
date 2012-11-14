@@ -12,30 +12,56 @@ public final class R {
     }
     public static final class color {
         public static final int black=0x7f050000;
+        public static final int grey_background=0x7f050001;
     }
     public static final class drawable {
         public static final int action_search=0x7f020000;
-        public static final int ic_action_search=0x7f020001;
-        public static final int ic_launcher=0x7f020002;
-        public static final int img1=0x7f020003;
-        public static final int img2=0x7f020004;
-        public static final int img3=0x7f020005;
-        public static final int img4=0x7f020006;
-        public static final int img5=0x7f020007;
-        public static final int img6=0x7f020008;
-        public static final int threedilogo_mdpi=0x7f020009;
+        public static final int archisource=0x7f020001;
+        public static final int ic_action_search=0x7f020002;
+        public static final int ic_launcher=0x7f020003;
+        public static final int image4427=0x7f020004;
+        public static final int image4438=0x7f020005;
+        public static final int image4586=0x7f020006;
+        public static final int image4618=0x7f020007;
+        public static final int image4629=0x7f020008;
+        public static final int image4640=0x7f020009;
+        public static final int image4651=0x7f02000a;
+        public static final int image4662=0x7f02000b;
+        public static final int image4673=0x7f02000c;
+        public static final int image4706=0x7f02000d;
+        public static final int image4749=0x7f02000e;
+        public static final int image4760=0x7f02000f;
+        public static final int img1=0x7f020010;
+        public static final int img2=0x7f020011;
+        public static final int img3=0x7f020012;
+        public static final int img4=0x7f020013;
+        public static final int img5=0x7f020014;
+        public static final int img6=0x7f020015;
+        public static final int industry_four=0x7f020016;
+        public static final int industry_six=0x7f020017;
+        public static final int other_industry=0x7f020018;
+        public static final int robosource=0x7f020019;
+        public static final int search_button=0x7f02001a;
+        public static final int splash=0x7f02001b;
+        public static final int three_di_logo=0x7f02001c;
+        public static final int threedilogo_mdpi=0x7f02001d;
+        public static final int threedps_image=0x7f02001e;
+        public static final int upload_button=0x7f02001f;
     }
     public static final class id {
-        public static final int ImageView1=0x7f080000;
-        public static final int gallery1=0x7f080002;
-        public static final int gridview=0x7f080001;
-        public static final int menu_search=0x7f080004;
-        public static final int menu_settings=0x7f080003;
+        public static final int UploadButton=0x7f080003;
+        public static final int gallery1=0x7f080001;
+        public static final int gridview=0x7f080000;
+        public static final int linearLayout1=0x7f080004;
+        public static final int menu_search=0x7f080006;
+        public static final int menu_settings=0x7f080005;
+        public static final int searchButton=0x7f080002;
     }
     public static final class layout {
         public static final int activity_splash=0x7f030000;
         public static final int home_activity=0x7f030001;
-        public static final int search_activity=0x7f030002;
+        public static final int industry_activity=0x7f030002;
+        public static final int search_activity=0x7f030003;
     }
     public static final class menu {
         public static final int activity_splash=0x7f070000;
