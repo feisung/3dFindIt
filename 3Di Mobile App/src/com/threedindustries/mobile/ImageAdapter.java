@@ -144,7 +144,7 @@ public class ImageAdapter extends BaseAdapter {
 		if(cached.thumb == null) {
 			
 			// no cached thumb, so let's set the view as blank
-			imgView.setImageResource(R.drawable.search);		
+			imgView.setImageResource(R.drawable.loading);		
 			imgView.setScaleType(ScaleType.CENTER);
 
 		} else {
@@ -264,36 +264,11 @@ public class ImageAdapter extends BaseAdapter {
 			"http://www.3dpartsource.com/userfiles/image/203148904.jpg",
 			"http://www.3dpartsource.com/userfiles/image/3599309209.jpg",
 			"http://www.3dpartsource.com/userfiles/image/3599309209.jpg",
-			"http://cdn.cs76.net/2011/spring/lectures/6/imgs/img_3034.jpg",
-			"http://cdn.cs76.net/2011/spring/lectures/6/imgs/img_3047.jpg",
-			"http://cdn.cs76.net/2011/spring/lectures/6/imgs/img_3092.jpg",
-			"http://cdn.cs76.net/2011/spring/lectures/6/imgs/img_3110.jpg",
-			"http://cdn.cs76.net/2011/spring/lectures/6/imgs/img_3113.jpg",
-			"http://cdn.cs76.net/2011/spring/lectures/6/imgs/img_3128.jpg",
-			"http://cdn.cs76.net/2011/spring/lectures/6/imgs/img_3160.jpg",
-			"http://cdn.cs76.net/2011/spring/lectures/6/imgs/img_3226.jpg",
-			"http://cdn.cs76.net/2011/spring/lectures/6/imgs/img_3228.jpg",
-			"http://cdn.cs76.net/2011/spring/lectures/6/imgs/img_3251.jpg",
-			"http://cdn.cs76.net/2011/spring/lectures/6/imgs/img_3268.jpg",
-			"http://cdn.cs76.net/2011/spring/lectures/6/imgs/img_3275.jpg",
-			"http://cdn.cs76.net/2011/spring/lectures/6/imgs/img_3346.jpg",
-			"http://cdn.cs76.net/2011/spring/lectures/6/imgs/img_3365.jpg",
-			"http://cdn.cs76.net/2011/spring/lectures/6/imgs/img_3374.jpg",
-			"http://cdn.cs76.net/2011/spring/lectures/6/imgs/img_3385.jpg",
-			"http://cdn.cs76.net/2011/spring/lectures/6/imgs/img_3392.jpg",
-			"http://cdn.cs76.net/2011/spring/lectures/6/imgs/img_3397.jpg",
-			"http://cdn.cs76.net/2011/spring/lectures/6/imgs/img_3398.jpg",
-			"http://cdn.cs76.net/2011/spring/lectures/6/imgs/img_3403.jpg",
-			"http://cdn.cs76.net/2011/spring/lectures/6/imgs/img_3424.jpg",
-			"http://cdn.cs76.net/2011/spring/lectures/6/imgs/img_3432.jpg",
-			"http://cdn.cs76.net/2011/spring/lectures/6/imgs/img_3448.jpg",
-			"http://cdn.cs76.net/2011/spring/lectures/6/imgs/img_3452.jpg",
-			"http://cdn.cs76.net/2011/spring/lectures/6/imgs/img_3484.jpg",
-			"http://cdn.cs76.net/2011/spring/lectures/6/imgs/img_3487.jpg",
-			"http://cdn.cs76.net/2011/spring/lectures/6/imgs/img_3494.jpg",
-			"http://cdn.cs76.net/2011/spring/lectures/6/imgs/img_3576.jpg",
-			"http://cdn.cs76.net/2011/spring/lectures/6/imgs/img_3597.jpg",
-			"http://cdn.cs76.net/2011/spring/lectures/6/imgs/img_3599.jpg",
-			"http://cdn.cs76.net/2011/spring/lectures/6/imgs/img_3610.jpg"
+			"http://www.3dpartsource.com/images/products/m1442_1/128_96.jpg",
+			"http://www.3dpartsource.com/images/products/m1441_2/128_96.jpg",
+			"http://www.3dpartsource.com/images/products/m1639_2/128_96.jpg",
+			"http://www.3dpartsource.com/images/products/m1640_2/128_96.jpg",
+			"http://www.3dpartsource.com/images/products/m1643_3/128_96.jpg",
+			"http://www.3dpartsource.com/images/products/m1850_1/320_240.jpg"
 	};
 }
