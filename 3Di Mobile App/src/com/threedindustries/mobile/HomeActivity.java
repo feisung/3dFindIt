@@ -20,23 +20,9 @@ public class HomeActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_activity);
-        
-        GridView gridview = (GridView) findViewById(R.id.gridview);
-        gridview.setAdapter(new ImageAdapter(this));
-
-        gridview.setOnItemClickListener(new OnItemClickListener() {
-
-			public void onItemClick(AdapterView<?> parent, View v, int position,
-					long id) {
-				intent = new Intent(HomeActivity.this, IndustryActivity.class);
-	            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-	            startActivity(intent);
-				//Toast.makeText(HomeActivity.this, "" + position, Toast.LENGTH_SHORT).show();
-				
-			}
-        });
    }
     
+   
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -66,5 +52,37 @@ public class HomeActivity extends Activity {
 
 		}
     }
-        
+	
+	//Handles On Click for 3DPartsource Logo
+    public void n3dps(View view){
+        intent = new Intent(this, IndustryActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+    
+	//Handles On Click for 3DArchiSource Logo
+    public void archisource(View view){
+    	
+    }
+
+	//Handles On Click for 3DMechasource Logo
+    public void mechasource(View view){
+    	
+    }
+    
+	//Handles On Click for 3DSciSource Logo
+    public void scisource(View view){
+    	
+    }
+    
+	//Handles On Click for 3GameSource Logo
+    public void Gamesource(View view){
+    	
+    }
+    
+	//Handles On Click for 3GameSource Logo
+    public void robosource(View view){
+    	
+    }
+    
 }

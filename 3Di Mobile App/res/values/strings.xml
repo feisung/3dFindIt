@@ -10,5 +10,12 @@
     <color name="black">#000000</color>
     <string name="industry_home">Industry</string>
     <color name="grey_background">#4d4c4e</color>
+    <color name="white">#FFFFFF</color>
+    <string name="threedps">3DPartsource</string>
+    <string name="archisource">3DArchisource</string>
+    <string name="mechasource">3DMechasource</string>
+    <string name="scisource">3DScisource</string>
+    <string name="gamesource">3DGamesource</string>
+    <string name="robosource">3DRobosource</string>
 
 </resources>
