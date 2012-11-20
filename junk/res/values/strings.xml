@@ -1,0 +1,13 @@
+<resources>
+
+    <string name="app_name">3Di Mobile App</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="title_app">3D Find It</string>
+    <string name="home">This is Home Activity</string>
+    <string name="button2">Next Activity</string>
+    <color name="black">#000000</color>
+    <string name="industry_home">Industry</string>
+
+</resources>

@@ -20,5 +20,7 @@
     <string name="textsearch">Your Text Search</string>
     <string name="app_search">3D Search</string>
     <string name="upload">Upload a model</string>
+    <string name="trysearch">Try it!</string>
+    <string name="upload_search">UPLOAD &amp; SEARCH</string>
 
 </resources>

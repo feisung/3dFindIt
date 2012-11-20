@@ -99,7 +99,7 @@
                         android:id="@+id/ImageView01"
                         android:layout_width="wrap_content"
                         android:layout_height="158dp"
-                        android:layout_gravity="center"
+                        android:layout_gravity="center|fill"
                         android:scaleType="centerInside"
                         android:src="@drawable/archisource" />
 
