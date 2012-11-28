@@ -17,7 +17,7 @@ public class HomeActivity extends Activity {
 	
 	Intent intent;
 	private static final String TAG = "3DI Home Activity";
-	
+	static String ServerAddress = "http://www.3dfabsource.com:12002/search";
     @Override  
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

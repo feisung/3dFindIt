@@ -62,7 +62,9 @@ public class IndustryActivity extends HomeActivity{
     
     public void Search (View view){
     	//Comment
-		startActivity(new Intent(IndustryActivity.this, SearchActivity.class));
+		//startActivity(new Intent(IndustryActivity.this, SearchActivity.class));
+    	//Ask the Server stuff
+    	new HTTPAsync().execute("", "clamp ", "exact "); 
     }
 
 	@Override
