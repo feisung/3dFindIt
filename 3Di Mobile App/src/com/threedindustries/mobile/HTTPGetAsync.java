@@ -34,7 +34,7 @@ public class HTTPGetAsync extends AsyncTask<String, Void, Void>{
 		Log.i(TAG, "HTTPGet Async On Start");
 	
 		try {
-			  URL url = new URL("http://www.vogella.com");
+			  URL url = new URL("http://www.3dpartsource.com");
 			  HttpURLConnection con = (HttpURLConnection) url
 			    .openConnection();
 			  readStream(con.getInputStream());
