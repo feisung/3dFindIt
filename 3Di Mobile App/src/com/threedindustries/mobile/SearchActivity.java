@@ -2,6 +2,7 @@ package com.threedindustries.mobile;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.net.URI;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,17 +31,21 @@ import android.app.ActionBar;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class SearchActivity extends HomeActivity {
 	private static final String TAG = "Search Activity";
 	private TextView tv;
+	private ImageView imageview;
+	//Server Address that replies to Search Queries
 	public static final String url = "http://www.3dfabsource.com:12002/search/index/format/json";
 	@TargetApi(11)
 	@Override  
@@ -51,7 +56,7 @@ public class SearchActivity extends HomeActivity {
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         tv = (TextView) findViewById(R.id.http_response);
-        
+        imageview = (ImageView) findViewById(R.id.preview);
       }
 	
 	public boolean GetContentIfNetworkAvailable() {
@@ -70,31 +75,20 @@ public class SearchActivity extends HomeActivity {
 		
 		//We first check that the network is available before getting new content
         if (GetContentIfNetworkAvailable() == true){
-        	Log.i(TAG, "Search Function Initiated");
-        	findViewById(R.id.Search).setVisibility(View.GONE);
-        	findViewById(R.id.http_response).setVisibility(View.VISIBLE);
-
-    		
+   		
     		//get user entered search term
     		EditText searchTxt = (EditText)findViewById(R.id.search_query);
     		String searchTerm = searchTxt.getText().toString();
     		if(searchTerm.length()>0){
-    			try{
-    				//encode in case user has included symbols such as spaces etc
-    				String encodedSearch = URLEncoder.encode(searchTerm, "UTF-8");
-    				//append encoded user search term to search URL
-    				String searchURL = "http://www.3dfabsource.com:12002/search";	//+encodedSearch;
-    				//instantiate and execute AsyncTask
-    				new ExecuteGetAsync().execute(searchURL);
-
-    			}
-    			catch(Exception e){ 
-    				tv.setText("Sorry, I was Unable to Get anything! Try Again please.");
-    				e.printStackTrace(); 
-    			}
+				String searchQuery = searchTerm;	
+				//instantiate and execute AsyncTask
+				new ExecuteGetAsync().execute(searchQuery);
+	        	//Update the View to show the results
+	        	findViewById(R.id.Search).setVisibility(View.GONE);
+	        	findViewById(R.id.http_response).setVisibility(View.VISIBLE);
     		}
     		else 
-    			tv.setText("Enter a search query!");
+    			Toast.makeText(this, "Please Enter a search query!", Toast.LENGTH_LONG).show();
     		}
         else{
         	Toast.makeText(this, "You don't seem to have Internet Access", Toast.LENGTH_SHORT).show();
@@ -120,7 +114,8 @@ public class SearchActivity extends HomeActivity {
 		    
     	    List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(5);
     	    // params comes from the execute() call: params[0] is the url.
-    	    nameValuePairs.add (new BasicNameValuePair("keyword", "wheel"));		
+    	    nameValuePairs.add (new BasicNameValuePair("keyword", params[0]));	
+    	    Log.i(TAG, "Searched for: " + params[0]);
     	    nameValuePairs.add (new BasicNameValuePair("refined_keyword", "any"));		
 	       try {
 	    	    httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs, HTTP.UTF_8));
@@ -129,7 +124,7 @@ public class SearchActivity extends HomeActivity {
 
 	    	    HttpEntity httpEntity = response.getEntity();
 	    	    output = EntityUtils.toString(httpEntity);
-	    	    Log.i(TAG, "The Output is" + output);
+	    	    //Log.i(TAG, "The Output is" + output);			//For Debug
 			} catch (UnsupportedEncodingException e) {
 				e.printStackTrace();
 			} catch (ClientProtocolException e) {
@@ -146,22 +141,26 @@ public class SearchActivity extends HomeActivity {
 				//get JSONObject from result
 				JSONObject resultObject = new JSONObject(output);
 				Log.i(TAG, "Got Site Result: " + resultObject);
-				JSONArray responseArray = resultObject.getJSONArray("results");
-				Log.i(TAG, "Got Result array: " + responseArray);
+				JSONArray responseArray = resultObject.getJSONArray("jsonSearchResults");
+				//Log.i(TAG, "Got Result array: " + responseArray);		//For Debug
 				//loop through each result in the array
 				for (int t=0; t<responseArray.length(); t++) {
 					//each item is a JSONObject
 					JSONObject responseObject = responseArray.getJSONObject(t);
-					Log.i(TAG, "Loading Array Data: " + responseObject);
+					//Log.i(TAG, "Loading Array Data: " + responseObject);		//For Debug
 					//get the results
-					siteResultBuilder.append(responseObject.getString("product_name")+": ");
-					siteResultBuilder.append(responseObject.get("product_description")+"\n\n");
+					String image = responseObject.getString("image")+": " + "\n";
+						imageview.setImageURI(Uri.parse("http://www.3dpartsource.com/images/products/m2101_1/320_240.jpg"));
+						Log.i(TAG, "The Image URL is: " + image);
+					
+					siteResultBuilder.append(responseObject.getString("product_name")+": " + "\n");
+					siteResultBuilder.append(responseObject.get("product_description")+" " + "\n\n");
 					Log.i(TAG, "Appending ResultBuilder");
 
 				}
 			}
 			catch (Exception e) {
-				tv.setText("Whoops - something went wrong!");
+				tv.setText("Was Unable to return any result!");
 				e.printStackTrace();
 			}
 			//check result exists

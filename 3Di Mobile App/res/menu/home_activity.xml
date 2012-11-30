@@ -5,10 +5,13 @@
         android:showAsAction="never" />
   <item android:id="@+id/menu_search"
    		android:icon="@drawable/action_search"
+   		android:title="Search"
         android:orderInCategory="100"
-        android:showAsAction="ifRoom" />
-  <item android:id="@+id/upload_button"
-   		android:icon="@drawable/action_search"
+        android:showAsAction="always"
+        android:actionViewClass="android.widget.SearchView"/>
+  <item android:id="@+id/menu_upload"
+        android:title="Upload"
+   		android:icon="@drawable/upload"
         android:orderInCategory="100"
         android:showAsAction="ifRoom" />  
 </menu>

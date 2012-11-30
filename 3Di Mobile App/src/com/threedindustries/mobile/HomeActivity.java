@@ -43,7 +43,12 @@ public class HomeActivity extends Activity {
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
 	    	return true;
-		case android.R.id.home:
+		case R.id.menu_upload:
+			//go to Search Activity
+            intent = new Intent(this, IndustryActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+	    	return true;		case android.R.id.home:
 			//go back to previous activity
 			intent = new Intent(this, HomeActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

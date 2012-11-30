@@ -45,8 +45,9 @@ public final class R {
         public static final int three_di_logo=0x7f02001a;
         public static final int threedilogo_mdpi=0x7f02001b;
         public static final int threedps_image=0x7f02001c;
-        public static final int upload_button=0x7f02001d;
-        public static final int upload_img=0x7f02001e;
+        public static final int upload=0x7f02001d;
+        public static final int upload_button=0x7f02001e;
+        public static final int upload_img=0x7f02001f;
     }
     public static final class id {
         public static final int FirstRow=0x7f080002;
@@ -69,12 +70,14 @@ public final class R {
         public static final int TextView06=0x7f080011;
         public static final int ThirdRow=0x7f08000e;
         public static final int gridview=0x7f080016;
-        public static final int http_response=0x7f08001e;
+        public static final int http_response=0x7f08001f;
         public static final int imageView1=0x7f08000c;
         public static final int imageView2=0x7f08001d;
         public static final int ind3=0x7f080008;
-        public static final int menu_search=0x7f080020;
-        public static final int menu_settings=0x7f08001f;
+        public static final int menu_search=0x7f080021;
+        public static final int menu_settings=0x7f080020;
+        public static final int menu_upload=0x7f080022;
+        public static final int preview=0x7f08001e;
         public static final int scrollView1=0x7f080000;
         public static final int search_query=0x7f08001a;
         public static final int searchbutton=0x7f080017;
@@ -82,7 +85,6 @@ public final class R {
         public static final int textView2=0x7f080018;
         public static final int threedarchisource=0x7f08000b;
         public static final int tv=0x7f08001b;
-        public static final int upload_button=0x7f080021;
     }
     public static final class layout {
         public static final int activity_splash=0x7f030000;
