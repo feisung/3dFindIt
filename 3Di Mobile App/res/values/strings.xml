@@ -23,5 +23,6 @@
     <string name="trysearch">Try it!</string>
     <string name="upload_search">UPLOAD &amp; SEARCH</string>
     <string name="search_hint">Find it!</string>
+    <string name="part_found">PART FOUND</string>
 
 </resources>

@@ -52,10 +52,6 @@ public class HomeActivity extends Activity {
 		case R.id.menu_search:
 			onSearchRequested();
 			Log.i(TAG, "About to Search");
-//			//go to Search Activity
-//            intent = new Intent(this, SearchActivity.class);
-//            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//            startActivity(intent);
 	    	return true;
 		case R.id.menu_upload:
 			//go to Search Activity
@@ -84,27 +80,27 @@ public class HomeActivity extends Activity {
     
 	//Handles On Click for 3DArchiSource Logo
     public void archisource(View view){
-    	
+    	Toast.makeText(this, "This Feature is Coming soon ...", Toast.LENGTH_SHORT).show();
     }
 
 	//Handles On Click for 3DMechasource Logo
     public void mechasource(View view){
-    	
+    	Toast.makeText(this, "This Feature is Coming soon ...", Toast.LENGTH_SHORT).show();
     }
     
 	//Handles On Click for 3DSciSource Logo
     public void scisource(View view){
-    	
+    	Toast.makeText(this, "This Feature is Coming soon ...", Toast.LENGTH_SHORT).show();
     }
     
 	//Handles On Click for 3GameSource Logo
     public void Gamesource(View view){
-    	
+    	Toast.makeText(this, "This Feature is Coming soon ...", Toast.LENGTH_SHORT).show();
     }
     
 	//Handles On Click for 3GameSource Logo
     public void robosource(View view){
-    	
+    	Toast.makeText(this, "This Feature is Coming soon ...", Toast.LENGTH_SHORT).show();
     }
     
 }

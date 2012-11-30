@@ -71,13 +71,9 @@ public class SearchActivity extends HomeActivity {
         imageview = (ImageView) findViewById(R.id.preview);
         
 		//We first check that the network is available before getting new content
-        if (GetContentIfNetworkAvailable() == true){
-   		
+        if (GetContentIfNetworkAvailable() == true){   		
 				//instantiate and execute AsyncTask
 				new ExecuteGetAsync().execute(query);
-	        	//Update the View to show the results
-	        	findViewById(R.id.Search).setVisibility(View.GONE);
-	        	findViewById(R.id.http_response).setVisibility(View.VISIBLE);
         }
 
         else{
@@ -98,12 +94,13 @@ public class SearchActivity extends HomeActivity {
 	    return false;
 	} 
 	
-	public void Search (View view){
-		
-
-	}
+//	public void Search (View view){
+//		Depreciated use	
+//	
+//	}
 	
-	/*-`	Async HTTP Class
+	/*To-Do: Clean up unused elements
+	 * `	Async HTTP Class
 	 * 
 	 * 
 	 * 
@@ -163,7 +160,9 @@ public class SearchActivity extends HomeActivity {
 					siteResultBuilder.append(responseObject.getString("product_name")+": " + "\n");
 					siteResultBuilder.append(responseObject.get("product_description")+" " + "\n\n");
 					Log.i(TAG, "Appending ResultBuilder");
-
+		        	//Update the View to show the results
+		        	findViewById(R.id.Search).setVisibility(View.GONE);
+		        	findViewById(R.id.queryResult).setVisibility(View.VISIBLE);
 				}
 			}
 			catch (Exception e) {
