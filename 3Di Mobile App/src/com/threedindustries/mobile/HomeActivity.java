@@ -49,12 +49,14 @@ public class HomeActivity extends Activity {
 		
     	//Handling the different menu items
 		switch (item.getItemId()){
-//		case R.id.menu_search:
+		case R.id.menu_search:
+			onSearchRequested();
+			Log.i(TAG, "About to Search");
 //			//go to Search Activity
 //            intent = new Intent(this, SearchActivity.class);
 //            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 //            startActivity(intent);
-//	    	return true;
+	    	return true;
 		case R.id.menu_upload:
 			//go to Search Activity
             intent = new Intent(this, IndustryActivity.class);

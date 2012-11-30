@@ -47,6 +47,7 @@ public class SearchActivity extends HomeActivity {
 	private static final String TAG = "Search Activity";
 	private TextView tv;
 	private ImageView imageview;
+	String query;
 	//Server Address that replies to Search Queries
 	public static final String url = "http://www.3dfabsource.com:12002/search/index/format/json";
 	@TargetApi(11)
@@ -62,12 +63,27 @@ public class SearchActivity extends HomeActivity {
         // Get the intent, verify the action and get the query
         Intent intent = getIntent();
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
-          String query = intent.getStringExtra(SearchManager.QUERY);
+          query = intent.getStringExtra(SearchManager.QUERY);
           Log.i(TAG, "The Search Term Entered: " + query);
         }
         
         tv = (TextView) findViewById(R.id.http_response);
         imageview = (ImageView) findViewById(R.id.preview);
+        
+		//We first check that the network is available before getting new content
+        if (GetContentIfNetworkAvailable() == true){
+   		
+				//instantiate and execute AsyncTask
+				new ExecuteGetAsync().execute(query);
+	        	//Update the View to show the results
+	        	findViewById(R.id.Search).setVisibility(View.GONE);
+	        	findViewById(R.id.http_response).setVisibility(View.VISIBLE);
+        }
+
+        else{
+        	Toast.makeText(this, "You don't seem to have Internet Access", Toast.LENGTH_SHORT).show();
+        	Log.e(TAG, "No Network");
+        }
       }
 	
 	public boolean GetContentIfNetworkAvailable() {
@@ -84,27 +100,7 @@ public class SearchActivity extends HomeActivity {
 	
 	public void Search (View view){
 		
-		//We first check that the network is available before getting new content
-        if (GetContentIfNetworkAvailable() == true){
-   		
-    		//get user entered search term
-    		EditText searchTxt = (EditText)findViewById(R.id.search_query);
-    		String searchTerm = searchTxt.getText().toString();
-    		if(searchTerm.length()>0){
-				String searchQuery = searchTerm;	
-				//instantiate and execute AsyncTask
-				new ExecuteGetAsync().execute(searchQuery);
-	        	//Update the View to show the results
-	        	findViewById(R.id.Search).setVisibility(View.GONE);
-	        	findViewById(R.id.http_response).setVisibility(View.VISIBLE);
-    		}
-    		else 
-    			Toast.makeText(this, "Please Enter a search query!", Toast.LENGTH_LONG).show();
-    		}
-        else{
-        	Toast.makeText(this, "You don't seem to have Internet Access", Toast.LENGTH_SHORT).show();
-        	Log.e(TAG, "No Network");
-        }
+
 	}
 	
 	/*-`	Async HTTP Class
