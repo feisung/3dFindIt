@@ -3,15 +3,16 @@
         android:title="@string/menu_settings"
         android:orderInCategory="100"
         android:showAsAction="never" />
+    
   <item android:id="@+id/menu_search"
    		android:icon="@drawable/action_search"
    		android:title="Search"
-        android:orderInCategory="100"
-        android:showAsAction="always"
+        android:showAsAction="always|collapseActionView"
         android:actionViewClass="android.widget.SearchView"/>
   <item android:id="@+id/menu_upload"
         android:title="Upload"
    		android:icon="@drawable/upload"
         android:orderInCategory="100"
-        android:showAsAction="ifRoom" />  
+        android:showAsAction="ifRoom" /><item android:id="@+id/menu_info" android:title="About" android:icon="@drawable/about" android:showAsAction="ifRoom" />  
+    
 </menu>

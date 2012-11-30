@@ -1,6 +1,9 @@
 package com.threedindustries.mobile;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +14,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 public class HomeActivity extends Activity {
@@ -26,23 +30,31 @@ public class HomeActivity extends Activity {
    }
     
    
-    @Override
+    @SuppressLint("NewApi")
+	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.home_activity, menu);
+        // Get the SearchView and set the searchable configuration
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView = (SearchView) menu.findItem(R.id.menu_search).getActionView();
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        searchView.setIconifiedByDefault(false); // Do not iconify the widget; expand it by default
+          Log.i(TAG, "The query is: " );
+        //TO-DO Add handler
         return true;
-    }
+    }	
     
 	public boolean onOptionsItemSelected(MenuItem item){
 		
     	//Handling the different menu items
 		switch (item.getItemId()){
-		case R.id.menu_search:
-			//go to Search Activity
-            intent = new Intent(this, SearchActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
-	    	return true;
+//		case R.id.menu_search:
+//			//go to Search Activity
+//            intent = new Intent(this, SearchActivity.class);
+//            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//            startActivity(intent);
+//	    	return true;
 		case R.id.menu_upload:
 			//go to Search Activity
             intent = new Intent(this, IndustryActivity.class);

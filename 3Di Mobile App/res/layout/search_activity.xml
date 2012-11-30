@@ -62,7 +62,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="354dp"
                 android:layout_weight="1"
-                android:src="@drawable/upload_img" />
+                android:src="@drawable/upload_img"
+                android:visibility="gone" />
 
             <ImageView
                 android:id="@+id/imageView1"

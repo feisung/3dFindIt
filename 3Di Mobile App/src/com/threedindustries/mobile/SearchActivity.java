@@ -28,7 +28,9 @@ import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
 import android.annotation.TargetApi;
 import android.app.ActionBar;
+import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -55,6 +57,15 @@ public class SearchActivity extends HomeActivity {
         //Enable navigating up
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+        
+        //Handler for search field in UI
+        // Get the intent, verify the action and get the query
+        Intent intent = getIntent();
+        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+          String query = intent.getStringExtra(SearchManager.QUERY);
+          Log.i(TAG, "The Search Term Entered: " + query);
+        }
+        
         tv = (TextView) findViewById(R.id.http_response);
         imageview = (ImageView) findViewById(R.id.preview);
       }
@@ -114,9 +125,9 @@ public class SearchActivity extends HomeActivity {
 		    
     	    List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(5);
     	    // params comes from the execute() call: params[0] is the url.
-    	    nameValuePairs.add (new BasicNameValuePair("keyword", params[0]));	
+    	    nameValuePairs.add (new BasicNameValuePair("keyword[keyword]", params[0]));	
     	    Log.i(TAG, "Searched for: " + params[0]);
-    	    nameValuePairs.add (new BasicNameValuePair("refined_keyword", "any"));		
+    	    nameValuePairs.add (new BasicNameValuePair("keyword[refine_keyword]", "any"));		
 	       try {
 	    	    httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs, HTTP.UTF_8));
 	    	    HttpResponse response = httpClient.execute(httpPost);

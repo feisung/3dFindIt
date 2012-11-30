@@ -22,5 +22,6 @@
     <string name="upload">Upload a model</string>
     <string name="trysearch">Try it!</string>
     <string name="upload_search">UPLOAD &amp; SEARCH</string>
+    <string name="search_hint">Find it!</string>
 
 </resources>

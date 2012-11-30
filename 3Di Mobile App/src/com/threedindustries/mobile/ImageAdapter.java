@@ -257,7 +257,7 @@ public class ImageAdapter extends BaseAdapter {
 	}
 	
 	
-	// all images from: http://danallan.net
+	// all images from:3dps
 	private String[] imageURLs = {
 			"http://www.3dpartsource.com/userfiles/image/2867919508.jpg",
 			"http://www.3dpartsource.com/userfiles/image/2181967779.jpg",
