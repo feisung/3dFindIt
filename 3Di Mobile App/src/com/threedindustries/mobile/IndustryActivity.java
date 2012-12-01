@@ -64,7 +64,7 @@ public class IndustryActivity extends HomeActivity{
     	//Comment
 		//startActivity(new Intent(IndustryActivity.this, SearchActivity.class));
     	//Ask the Server stuff
-    	new HTTPAsync().execute("", "clamp ", "exact "); 
+    	new HTTPAsync().execute(); 
     }
 
 	@Override

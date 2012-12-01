@@ -40,7 +40,6 @@ public class HomeActivity extends Activity {
         SearchView searchView = (SearchView) menu.findItem(R.id.menu_search).getActionView();
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
         searchView.setIconifiedByDefault(false); // Do not iconify the widget; expand it by default
-          Log.i(TAG, "The query is: " );
         //TO-DO Add handler
         return true;
     }	
