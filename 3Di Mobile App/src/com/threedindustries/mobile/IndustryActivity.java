@@ -15,6 +15,7 @@ import android.widget.GridView;
 public class IndustryActivity extends HomeActivity{
 	
 	private static final String TAG = "Industry Activity";
+	 final int UploadFile = 1;
 	private ImageAdapter adapter;
     @TargetApi(11)
 	@Override
@@ -61,10 +62,15 @@ public class IndustryActivity extends HomeActivity{
 	}
     
     public void Search (View view){
-    	//Comment
-		//startActivity(new Intent(IndustryActivity.this, SearchActivity.class));
-    	//Ask the Server stuff
-    	new HTTPAsync().execute(); 
+   	
+    	Log.i(TAG, "Opening file Browser to select what to upload");
+    	//Open File Browser Chooser
+        Intent intentBrowseFiles = new
+        Intent(Intent.ACTION_GET_CONTENT);
+        intentBrowseFiles.setType("*/*");
+
+        	intentBrowseFiles.addCategory(Intent.CATEGORY_OPENABLE);
+        	startActivityForResult(intentBrowseFiles, UploadFile);
     }
 
 	@Override
@@ -96,5 +102,25 @@ public class IndustryActivity extends HomeActivity{
 		// TODO Auto-generated method stub
 		super.onStop();
 	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+			switch(requestCode) {
+				case UploadFile: {
+				if (resultCode == RESULT_OK){
+				Uri uri = data.getData();
+				String filePath = uri.getPath();
+				Log.i(TAG, "File Path: " + filePath);
+				
+				//Upon Collection of file path, we execute the post with the path to the file
+				//To Debug
+		    	new HTTPAsync().execute(); 
+
+				}
+			}
+		}
+	}
 
 }
+
+
