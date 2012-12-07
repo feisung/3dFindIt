@@ -22,7 +22,7 @@ public class HomeActivity extends Activity {
 	Intent intent;
 	private static final String TAG = "3DI Home Activity";
 	static String ServerAddress = "http://www.3dfabsource.com:12002/search/index/format/json";
-    @Override  
+   @Override  
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "OnCreate 3DI App");
@@ -57,7 +57,8 @@ public class HomeActivity extends Activity {
             intent = new Intent(this, IndustryActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
-	    	return true;		case android.R.id.home:
+	    	return true;		
+	    case android.R.id.home:
 			//go back to previous activity
 			intent = new Intent(this, HomeActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

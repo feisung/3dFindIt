@@ -36,8 +36,8 @@ import android.widget.Toast;
 
 public class SearchActivity extends HomeActivity {
 	private static final String TAG = "Search Activity";
-	private TextView tv;
-	private ImageView imageview;
+	public TextView tv;
+	public ImageView imageview;
 	String query;
 	//Server Address that replies to Search Queries
 	public static final String url = "http://www.3dfabsource.com:12002/search/index/format/json";

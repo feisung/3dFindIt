@@ -26,7 +26,6 @@ import android.util.Log;
 public class HTTPAsync extends AsyncTask<String, Void, Void>{
 
 	private static final String TAG = "HTTPPost Task";
-	// Server URL that will handle HTTP Posts on the server; Python listens on /arduino
 	
 	@Override
 	protected Void doInBackground(String... params) {
@@ -78,7 +77,8 @@ public class HTTPAsync extends AsyncTask<String, Void, Void>{
 
             outputStream = new DataOutputStream( connection.getOutputStream() );
             outputStream.writeBytes(twoHyphens + boundary + lineEnd);
-            outputStream.writeBytes("Content-Disposition: form-data; name=\"uploadedfile\";filename=\"" + pathToOurFile +"\"" + lineEnd);
+            Log.i(TAG, "Uploading file from: " + params[0]);
+            outputStream.writeBytes( params[0] +"\"" + lineEnd);
             outputStream.writeBytes(lineEnd);
 
             bytesAvailable = fileInputStream.available();
@@ -94,6 +94,7 @@ public class HTTPAsync extends AsyncTask<String, Void, Void>{
 	            bytesAvailable = fileInputStream.available();
 	            bufferSize = Math.min(bytesAvailable, maxBufferSize);
 	            bytesRead = fileInputStream.read(buffer, 0, bufferSize);
+	            Log.i(TAG, "Uploading item. . .");
             }
 
             outputStream.writeBytes(lineEnd);
@@ -121,6 +122,7 @@ public class HTTPAsync extends AsyncTask<String, Void, Void>{
 	}
 	
 	protected void onPostExecute(Long result){
+		Log.i(TAG, "On PostExecute Ready to handle");
 //        Toast.makeText(getApplicationContext(), "Request Sent Successfully", Toast.LENGTH_SHORT).show();		
 	}
 	
