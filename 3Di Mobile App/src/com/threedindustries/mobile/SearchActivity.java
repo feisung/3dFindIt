@@ -2,6 +2,7 @@ package com.threedindustries.mobile;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +24,8 @@ import android.app.ActionBar;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -50,6 +53,9 @@ public class SearchActivity extends HomeActivity {
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         
+        tv = (TextView) findViewById(R.id.http_response);
+        imageview = (ImageView) findViewById(R.id.preview);
+        
         //Handler for search field in UI
         // Get the intent, verify the action and get the query
         Intent intent = getIntent();
@@ -57,9 +63,6 @@ public class SearchActivity extends HomeActivity {
           query = intent.getStringExtra(SearchManager.QUERY);
           Log.i(TAG, "The Search Term Entered: " + query);
         }
-        
-        tv = (TextView) findViewById(R.id.http_response);
-        imageview = (ImageView) findViewById(R.id.preview);
         
 		//We first check that the network is available before getting new content
         if (GetContentIfNetworkAvailable() == true){   		
@@ -139,10 +142,16 @@ public class SearchActivity extends HomeActivity {
 					//each item is a JSONObject
 					JSONObject responseObject = responseArray.getJSONObject(t);
 					//Log.i(TAG, "Loading Array Data: " + responseObject);		//For Debug
-					//get the results
-					String image = responseObject.getString("image")+": " + "\n";
-						imageview.setImageURI(Uri.parse("http://www.3dpartsource.com/images/products/m2101_1/320_240.jpg"));
-						Log.i(TAG, "The Image URL is: " + image);
+					
+					//For Image Array, we first select the Image Object and then the urls from it
+					JSONObject imageObject = responseObject.getJSONObject("image");
+					String image = imageObject.getString("urls");
+					JSONArray imageArray = imageObject.getJSONArray("urls");
+					//This returns an array of 0 - 3: For now we just select the first item 0
+					String image1 = imageArray.getString(0);
+					//Now Show the images
+						imageview.setImageBitmap(getBitmap("http://www.3dpartsource.com/images/products/m2101_1/320_240.jpg"));
+						Log.i(TAG, "The image to string: " + image1);
 					
 					siteResultBuilder.append(responseObject.getString("product_name")+": " + "\n");
 					siteResultBuilder.append(responseObject.get("product_description")+" " + "\n\n");
@@ -164,6 +173,14 @@ public class SearchActivity extends HomeActivity {
 				tv.setText("Sorry - Unable to return any results from your search!");		
 			}	
 	}
+	
+	public Bitmap getBitmap(String bitmapUrl) {
+		  try {
+		    URL url = new URL(bitmapUrl);
+		    return BitmapFactory.decodeStream(url.openConnection().getInputStream());
+		  }
+		  catch(Exception ex) {return null;}
+		}
 }
 
 

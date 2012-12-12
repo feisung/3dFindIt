@@ -80,31 +80,28 @@
             android:layout_height="wrap_content"
             android:visibility="gone" >
 
-            <ImageView
-                android:id="@+id/preview"
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:layout_marginRight="6dip"
-                android:src="@drawable/search_icon" />
-
             <LinearLayout
-                android:layout_width="0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
+                android:id="@+id/LinearLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:orientation="vertical" >
 
-                <TextView
-                    android:id="@+id/message"
+                <ImageView
+                    android:id="@+id/preview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center" />
+                    android:layout_weight="1"
+                    android:src="@drawable/loading" />
 
                 <TextView
                     android:id="@+id/http_response"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10px"
-                    android:textColor="#0099CC" />
+                    android:layout_weight="1"
+                    android:text="TextView"
+                    android:textColor="@color/white"
+                    android:textSize="20dp" />
+
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
