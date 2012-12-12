@@ -40,7 +40,7 @@ import android.widget.GridView;
 public class IndustryActivity extends SearchActivity{
 	
 	private static final String TAG = "Industry Activity";
-	static String UploadServerAddress = "http://www.3dfabsource.com:12002/search/index/format/json/search/file-upload";
+	static String UploadServerAddress = "http://www.3dfabsource.com:12002/search/file-upload";
 
 	 final int UploadFile = 1;
 	private ImageAdapter adapter;
