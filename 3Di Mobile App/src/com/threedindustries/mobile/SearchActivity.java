@@ -60,7 +60,6 @@ public class SearchActivity extends HomeActivity {
 		ActionBar actionBar = getActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
 
-
 		// Handler for search field in UI
 		// Get the intent, verify the action and get the query
 		Intent intent = getIntent();
@@ -191,24 +190,12 @@ public class SearchActivity extends HomeActivity {
 									+ responseObject.getString("product_name")
 											.toString());
 				}
-				
+
 			} catch (Exception e) {
 				tv.setText("Was Unable to return any result!");
 				e.printStackTrace();
 			}
 			return results;
-		}
-
-		public Bitmap getBitmap(String bitmapUrl) {
-			try {
-				URL url = new URL(bitmapUrl);
-				Log.i(TAG, "The bitmap Url: " + url);
-				return BitmapFactory.decodeStream(url.openConnection()
-						.getInputStream());
-			} catch (Exception ex) {
-				Log.e(TAG, "OOps, Bitmap was unable to decode because of: " + ex);
-				return null;
-			}
 		}
 
 		public class ResultsItemAdepter extends ArrayAdapter<SearchResults> {
@@ -229,17 +216,19 @@ public class SearchActivity extends HomeActivity {
 				}
 
 				SearchResults searchResults = results.get(position);
-				Log.i(TAG, "Value for SR= " + searchResults + " and position: " + position);
+				Log.i(TAG, "Value for SR= " + searchResults + " and position: "
+						+ position);
 				if (searchResults != null) {
 					Log.i(TAG, "++SearchResults");
 					TextView product_name = (TextView) v
 							.findViewById(R.id.product_name);
 					TextView description = (TextView) v
 							.findViewById(R.id.http_response);
-					//ImageView image = (ImageView) v.findViewById(R.id.preview_sec);
-					SmartImageView image = (SmartImageView) v.findViewById(R.id.preview_sec);
+					// ImageView image = (ImageView)
+					// v.findViewById(R.id.preview_sec);
+					SmartImageView image = (SmartImageView) v
+							.findViewById(R.id.preview_sec);
 
-					
 					if (product_name != null) {
 						product_name.setText(searchResults.product_name);
 						Log.i(TAG, "*Name: " + searchResults.product_name);
@@ -253,7 +242,7 @@ public class SearchActivity extends HomeActivity {
 
 					if (image != null) {
 						image.setImageUrl(searchResults.image_url);
-						//image.setImageBitmap(getBitmap(searchResults.image_url));
+						// image.setImageBitmap(getBitmap(searchResults.image_url));
 						Log.i(TAG, "*Bitmap: " + searchResults.image_url);
 					}
 				}
