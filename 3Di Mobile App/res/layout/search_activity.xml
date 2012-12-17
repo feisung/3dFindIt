@@ -77,7 +77,9 @@
         <ListView
             android:id="@+id/resultsListView"
             android:layout_width="match_parent"
-            android:layout_height="fill_parent" >
+            android:layout_height="fill_parent"
+            android:fadingEdge="vertical" >
+
         </ListView>
 
         <ScrollView
