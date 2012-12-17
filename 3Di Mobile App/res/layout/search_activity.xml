@@ -55,7 +55,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:visibility="visible" >
+            android:visibility="gone" >
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -74,16 +74,22 @@
                 android:src="@drawable/search_icon" />
         </LinearLayout>
 
+        <ListView
+            android:id="@+id/resultsListView"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent" >
+        </ListView>
+
         <ScrollView
             android:id="@+id/queryResult"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:visibility="gone" >
 
             <LinearLayout
                 android:id="@+id/LinearLayout1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="fill_parent"
                 android:orientation="vertical" >
 
                 <ImageView
@@ -91,7 +97,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:src="@drawable/loading" />
+                    android:src="@drawable/loading"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/product_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="TextView"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    android:visibility="gone" />
 
                 <TextView
                     android:id="@+id/http_response"
@@ -100,8 +117,8 @@
                     android:layout_weight="1"
                     android:text="TextView"
                     android:textColor="@color/white"
-                    android:textSize="20dp" />
-
+                    android:textSize="20dp"
+                    android:visibility="gone" />
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

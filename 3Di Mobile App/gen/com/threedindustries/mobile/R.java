@@ -48,9 +48,9 @@ public final class R {
         public static final int LinearLayout01=0x7f090012;
         public static final int LinearLayout02=0x7f09000f;
         public static final int LinearLayout1=0x7f090001;
-        public static final int Search=0x7f09001c;
+        public static final int Search=0x7f09001f;
         public static final int SecondRow=0x7f090007;
-        public static final int TextSearch=0x7f090019;
+        public static final int TextSearch=0x7f09001c;
         public static final int TextView01=0x7f09000a;
         public static final int TextView02=0x7f09000d;
         public static final int TextView03=0x7f090006;
@@ -59,29 +59,33 @@ public final class R {
         public static final int TextView06=0x7f090011;
         public static final int ThirdRow=0x7f09000e;
         public static final int gridview=0x7f090016;
-        public static final int http_response=0x7f090020;
+        public static final int http_response=0x7f09001b;
         public static final int imageView1=0x7f09000c;
-        public static final int imageView2=0x7f09001d;
+        public static final int imageView2=0x7f090020;
         public static final int ind3=0x7f090008;
-        public static final int menu_info=0x7f090024;
-        public static final int menu_search=0x7f090022;
-        public static final int menu_settings=0x7f090021;
-        public static final int menu_upload=0x7f090023;
-        public static final int preview=0x7f09001f;
-        public static final int queryResult=0x7f09001e;
+        public static final int menu_info=0x7f090027;
+        public static final int menu_search=0x7f090025;
+        public static final int menu_settings=0x7f090024;
+        public static final int menu_upload=0x7f090026;
+        public static final int preview=0x7f090023;
+        public static final int preview_sec=0x7f090019;
+        public static final int product_name=0x7f09001a;
+        public static final int queryResult=0x7f090022;
+        public static final int resultsListView=0x7f090021;
         public static final int scrollView1=0x7f090000;
-        public static final int search_query=0x7f09001a;
+        public static final int search_query=0x7f09001d;
         public static final int searchbutton=0x7f090017;
         public static final int textView1=0x7f090015;
         public static final int textView2=0x7f090018;
         public static final int threedarchisource=0x7f09000b;
-        public static final int tv=0x7f09001b;
+        public static final int tv=0x7f09001e;
     }
     public static final class layout {
         public static final int activity_splash=0x7f030000;
         public static final int home_activity=0x7f030001;
         public static final int industry_activity=0x7f030002;
-        public static final int search_activity=0x7f030003;
+        public static final int listitem=0x7f030003;
+        public static final int search_activity=0x7f030004;
     }
     public static final class menu {
         public static final int activity_splash=0x7f080000;
