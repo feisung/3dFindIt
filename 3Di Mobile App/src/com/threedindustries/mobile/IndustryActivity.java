@@ -34,6 +34,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 
@@ -44,6 +45,7 @@ public class IndustryActivity extends HomeActivity{
 
 	 final int UploadFile = 1;
 	private ImageAdapter adapter;
+	public TextView tv;
     @TargetApi(11)
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
