@@ -37,7 +37,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 
-public class IndustryActivity extends SearchActivity{
+public class IndustryActivity extends HomeActivity{
 	
 	private static final String TAG = "Industry Activity";
 	static String UploadServerAddress = "http://www.3dfabsource.com:12002/search/file-upload";
@@ -49,6 +49,8 @@ public class IndustryActivity extends SearchActivity{
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
+		Log.i(TAG, "OnCreate");
+
 		setContentView(R.layout.industry_activity);
         //Enable navigating up
         ActionBar actionBar = getActionBar();
@@ -56,7 +58,6 @@ public class IndustryActivity extends SearchActivity{
         
 		@SuppressWarnings("deprecation")
 		final Object data = getLastNonConfigurationInstance();
-		
         GridView gridview = (GridView) findViewById(R.id.gridview);
         adapter = new ImageAdapter(this, data);
         gridview.setAdapter(adapter);
@@ -224,15 +225,16 @@ public class IndustryActivity extends SearchActivity{
 				}
 			}
 			catch (Exception e) {
-				tv.setText("Was Unable to return any result!");
+				//tv.setText("Was Unable to return any result!");
 				e.printStackTrace();
 			}
 			//check result exists
 			if(siteResultBuilder.length()>0){
-				tv.setText(siteResultBuilder.toString());
+				//tv.setText(siteResultBuilder.toString());
 				Log.i(TAG, "Showing Results");	
 			}else
-				tv.setText("Sorry - Unable to return any results from your search!");		
+				Log.i(TAG, "Else");
+				//tv.setText("Sorry - Unable to return any results from your search!");		
 			}	
 	}
 }
