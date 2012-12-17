@@ -19,6 +19,9 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
+
+import com.loopj.android.image.SmartImageView;
+
 import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.SearchManager;
@@ -203,6 +206,7 @@ public class SearchActivity extends HomeActivity {
 				return BitmapFactory.decodeStream(url.openConnection()
 						.getInputStream());
 			} catch (Exception ex) {
+				Log.e(TAG, "OOps, Bitmap was unable to decode because of: " + ex);
 				return null;
 			}
 		}
@@ -232,8 +236,10 @@ public class SearchActivity extends HomeActivity {
 							.findViewById(R.id.product_name);
 					TextView description = (TextView) v
 							.findViewById(R.id.http_response);
-					ImageView image = (ImageView) v.findViewById(R.id.preview_sec);
+					//ImageView image = (ImageView) v.findViewById(R.id.preview_sec);
+					SmartImageView image = (SmartImageView) v.findViewById(R.id.preview_sec);
 
+					
 					if (product_name != null) {
 						product_name.setText(searchResults.product_name);
 						Log.i(TAG, "*Name: " + searchResults.product_name);
@@ -246,7 +252,8 @@ public class SearchActivity extends HomeActivity {
 					}
 
 					if (image != null) {
-						image.setImageBitmap(getBitmap(searchResults.image_url));
+						image.setImageUrl(searchResults.image_url);
+						//image.setImageBitmap(getBitmap(searchResults.image_url));
 						Log.i(TAG, "*Bitmap: " + searchResults.image_url);
 					}
 				}
