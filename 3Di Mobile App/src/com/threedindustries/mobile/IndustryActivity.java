@@ -41,7 +41,7 @@ import android.widget.GridView;
 public class IndustryActivity extends HomeActivity{
 	
 	private static final String TAG = "Industry Activity";
-	static String UploadServerAddress = "http://www.3dfabsource.com:12002/search/file-upload";
+	static String UploadServerAddress = "http://www.3dfabsource.com:12002/search/file-upload/format/json";
 
 	 final int UploadFile = 1;
 	private ImageAdapter adapter;
@@ -159,7 +159,7 @@ public class IndustryActivity extends HomeActivity{
 	 * *********************************************************************************/
 	private class ExecuteUploadSearchAsync extends AsyncTask<String, Void, String> {
 		/*
-		 * Background Task to get the data
+		 * Background Task to upload file and get the data
 		 */
 		@Override
 		protected String doInBackground(String... params) {
@@ -198,45 +198,10 @@ public class IndustryActivity extends HomeActivity{
 	}
 
 		protected void onPostExecute(String output) {
-			setContentView(R.layout.search_activity);
-
-			
-			StringBuilder siteResultBuilder = new StringBuilder();
-			try {
-				//get JSONObject from result
-				JSONObject resultObject = new JSONObject(output);
-				Log.i(TAG, "Got Site Result: " + resultObject);
-				JSONArray responseArray = resultObject.getJSONArray("jsonSearchResults");
-				//Log.i(TAG, "Got Result array: " + responseArray);		//For Debug
-				//loop through each result in the array
-				for (int t=0; t<responseArray.length(); t++) {
-					//each item is a JSONObject
-					JSONObject responseObject = responseArray.getJSONObject(t);
-					Log.i(TAG, "Loading Array Data: " + responseObject);		//For Debug
-					//get the results
-//					String image = responseObject.getString("image")+": " + "\n";
-//						imageview.setImageURI(Uri.parse("http://www.3dpartsource.com/images/products/m2101_1/320_240.jpg"));
-//						Log.i(TAG, "The Image URL is: " + image);
-					
-					siteResultBuilder.append(responseObject.getString("product_name")+": " + "\n");
-					siteResultBuilder.append(responseObject.get("product_description")+" " + "\n\n");
-					Log.i(TAG, "Appending ResultBuilder");
-		        	//Update the View to show the results
-		        	findViewById(R.id.Search).setVisibility(View.GONE);
-		        	findViewById(R.id.queryResult).setVisibility(View.VISIBLE);
-				}
-			}
-			catch (Exception e) {
-				//tv.setText("Was Unable to return any result!");
-				e.printStackTrace();
-			}
-			//check result exists
-			if(siteResultBuilder.length()>0){
-				//tv.setText(siteResultBuilder.toString());
-				Log.i(TAG, "Showing Results");	
-			}else
-				Log.i(TAG, "Else");
-				//tv.setText("Sorry - Unable to return any results from your search!");		
+	    	Intent search = new Intent (IndustryActivity.this, SearchActivity.class);
+	    	search.putExtra("output", output);
+	    	startActivity(search);
+	    	Log.i(TAG, "Passed Intent Extra");
 			}	
 	}
 }

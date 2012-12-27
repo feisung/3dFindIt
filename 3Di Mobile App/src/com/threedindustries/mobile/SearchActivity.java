@@ -57,6 +57,20 @@ public class SearchActivity extends HomeActivity {
 		ActionBar actionBar = getActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
 
+		/**TODO: Add Argument for when the correct Upload Search Result 
+		 * Array is returned, then update the UI
+		 * */
+		//When Receiving Intent extras data from file upload results
+		Bundle extras = getIntent().getExtras();
+		if (extras == null) {
+			return;
+		}
+		// Get data via the key
+		String UploadSearchResult = extras.getString("output");
+		if (UploadSearchResult != null) {
+			Log.i(TAG, "Got Result Array: " + UploadSearchResult);
+			// here we point to the processing of results to UI
+		} 
 		// Handler for search field in UI
 		// Get the intent, verify the action and get the query
 		Intent intent = getIntent();
@@ -137,15 +151,20 @@ public class SearchActivity extends HomeActivity {
 
 		protected void onPostExecute(String output) {
 
+			SearchResultBuilder(output);
+			// Update the View to show the results
+			//			findViewById(R.id.Search).setVisibility(View.GONE);
+			//			findViewById(R.id.queryResult).setVisibility(View.VISIBLE);
+		}
+
+		//Temporary public class to display results
+		public void SearchResultBuilder(String output){
 			ArrayList<SearchResults> results = Result(output);
 			Log.i(TAG, "#Loaded results Array: " + results);
 
 			ListView listView = (ListView) findViewById(R.id.resultsListView);
 			listView.setAdapter(new ResultsItemAdepter(SearchActivity.this,
 					R.layout.listitem, results));
-			// Update the View to show the results
-			findViewById(R.id.Search).setVisibility(View.GONE);
-			findViewById(R.id.queryResult).setVisibility(View.VISIBLE);
 		}
 
 		protected ArrayList<SearchResults> Result(String output) {
@@ -180,12 +199,12 @@ public class SearchActivity extends HomeActivity {
 					SearchResults result = new SearchResults(responseObject
 							.getString("product_name").toString(),
 							responseObject.get("product_description")
-									.toString(), image1);
+							.toString(), image1);
 					results.add(result);
 					Log.i(TAG,
 							"\n Product Name: "
 									+ responseObject.getString("product_name")
-											.toString());
+									.toString());
 				}
 
 			} catch (Exception e) {
