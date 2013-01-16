@@ -39,8 +39,8 @@ public class HTTPAsync extends AsyncTask<String, Void, Void>{
     DataInputStream inputStream = null;
     
     
-    String pathToOurFile = "/sdcard/App_Dev/test.step";
-    String urlServer = "http://www.3dfabsource.com:12002/search/index/format/json/search/file-upload";
+    String pathToOurFile = "/sdcard/test.step";
+    String urlServer = "http://www.3dfabsource.com:12002/search/file-upload/format/json";
     String lineEnd = "\r\n";
     String twoHyphens = "--";
     String boundary =  "*****";

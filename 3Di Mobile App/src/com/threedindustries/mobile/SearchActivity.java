@@ -57,10 +57,11 @@ public class SearchActivity extends HomeActivity {
 		ActionBar actionBar = getActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
 
-		/**TODO: Add Argument for when the correct Upload Search Result 
-		 * Array is returned, then update the UI
+		/**
+		 * TODO: Add Argument for when the correct Upload Search Result Array is
+		 * returned, then update the UI
 		 * */
-		//When Receiving Intent extras data from file upload results
+		// When Receiving Intent extras data from file upload results
 		Bundle extras = getIntent().getExtras();
 		if (extras == null) {
 			return;
@@ -70,7 +71,9 @@ public class SearchActivity extends HomeActivity {
 		if (UploadSearchResult != null) {
 			Log.i(TAG, "Got Result Array: " + UploadSearchResult);
 			// here we point to the processing of results to UI
-		} 
+			ExecutePostAsync executePost = new ExecutePostAsync();
+			executePost.SearchResultBuilder(UploadSearchResult);
+		}
 		// Handler for search field in UI
 		// Get the intent, verify the action and get the query
 		Intent intent = getIntent();
@@ -83,7 +86,11 @@ public class SearchActivity extends HomeActivity {
 		// content
 		if (GetContentIfNetworkAvailable() == true) {
 			// instantiate and execute AsyncTask
-			new ExecutePostAsync().execute(query);
+			if (query != null) {
+				new ExecutePostAsync().execute(query);
+			}
+			else
+				Log.i(TAG, "## Query is null");
 		}
 
 		else {
@@ -129,7 +136,7 @@ public class SearchActivity extends HomeActivity {
 					params[0]));
 			Log.i(TAG, "Searched for: " + params[0]);
 			nameValuePairs.add(new BasicNameValuePair(
-					"keyword[refine_keyword]", "any"));
+					"keyword[refine_keyword]", "any")); // Change me for refined
 			try {
 				httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs,
 						HTTP.UTF_8));
@@ -153,12 +160,12 @@ public class SearchActivity extends HomeActivity {
 
 			SearchResultBuilder(output);
 			// Update the View to show the results
-			//			findViewById(R.id.Search).setVisibility(View.GONE);
-			//			findViewById(R.id.queryResult).setVisibility(View.VISIBLE);
+			// findViewById(R.id.Search).setVisibility(View.GONE);
+			// findViewById(R.id.queryResult).setVisibility(View.VISIBLE);
 		}
 
-		//Temporary public class to display results
-		public void SearchResultBuilder(String output){
+		// Temporary public class to display results
+		public void SearchResultBuilder(String output) {
 			ArrayList<SearchResults> results = Result(output);
 			Log.i(TAG, "#Loaded results Array: " + results);
 
@@ -199,12 +206,12 @@ public class SearchActivity extends HomeActivity {
 					SearchResults result = new SearchResults(responseObject
 							.getString("product_name").toString(),
 							responseObject.get("product_description")
-							.toString(), image1);
+									.toString(), image1);
 					results.add(result);
 					Log.i(TAG,
 							"\n Product Name: "
 									+ responseObject.getString("product_name")
-									.toString());
+											.toString());
 				}
 
 			} catch (Exception e) {

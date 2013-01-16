@@ -3,27 +3,16 @@ package com.threedindustries.mobile;
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.mime.HttpMultipartMode;
 import org.apache.http.entity.mime.MultipartEntity;
 import org.apache.http.entity.mime.content.FileBody;
-import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.content.ActivityNotFoundException;
@@ -163,38 +152,38 @@ public class IndustryActivity extends HomeActivity{
 		 */
 		@Override
 		protected String doInBackground(String... params) {
-			String output = null;
-			HttpClient httpClient = new DefaultHttpClient();
-		    HttpPost httpPost = new HttpPost(UploadServerAddress);
-		    Log.v(TAG, "IP Address in use: " + UploadServerAddress);
-		    MultipartEntity reqEntity = new MultipartEntity(HttpMultipartMode.BROWSER_COMPATIBLE);
-		    
-    	    // params comes from the execute() call: params[0] is the url.
-    	    
-    	    File file = new File(params[0]);
-    	    FileBody fileBody = new FileBody(file);
-	
-	       try {
-	    	   reqEntity.addPart("model", fileBody);
-    	    Log.i(TAG, "Searched for: " + params[0] + " and the reqEntity has: " + reqEntity);
-    	    httpPost.setEntity(reqEntity);
-    	    HttpResponse response = httpClient.execute(httpPost);
-            Log.v(TAG, "Post sent");
+		String output = null;
+		HttpClient httpClient = new DefaultHttpClient();
+		HttpPost httpPost = new HttpPost(UploadServerAddress);
+		Log.v(TAG, "IP Address in use: " + UploadServerAddress);
+		MultipartEntity reqEntity = new MultipartEntity(HttpMultipartMode.BROWSER_COMPATIBLE);
 
-    	    HttpEntity httpEntity = response.getEntity();
-    	    output = EntityUtils.toString(httpEntity);
-    	    Log.i(TAG, "The Output is" + output);			//For Debug
-			
-	       } catch (UnsupportedEncodingException e) {
-				e.printStackTrace();
-			} catch (ClientProtocolException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			return output;
+		     // params comes from the execute() call: params[0] is the url.
+		    
+		     File file = new File(params[0]);
+		     FileBody fileBody = new FileBody(file);
+
+		try {
+		reqEntity.addPart("model", fileBody);
+		     Log.i(TAG, "Searched for: " + params[0] + " and the reqEntity has: " + reqEntity);
+		     httpPost.setEntity(reqEntity);
+		     HttpResponse response = httpClient.execute(httpPost);
+		            Log.v(TAG, "Post sent");
+
+		     HttpEntity httpEntity = response.getEntity();
+		     output = EntityUtils.toString(httpEntity);
+		     Log.i(TAG, "The Output is" + output);	//For Debug
+
+		} catch (UnsupportedEncodingException e) {
+		e.printStackTrace();
+		} catch (ClientProtocolException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		}
+		return output;
 	}
 
 		protected void onPostExecute(String output) {
