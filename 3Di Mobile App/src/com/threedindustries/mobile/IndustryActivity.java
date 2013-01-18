@@ -15,6 +15,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 import android.annotation.TargetApi;
 import android.app.ActionBar;
+import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
@@ -152,6 +153,13 @@ public class IndustryActivity extends HomeActivity {
 		/*
 		 * Background Task to upload file and get the data
 		 */
+		
+		private ProgressDialog Dialog = new ProgressDialog(IndustryActivity.this);
+
+		protected void onPreExecute() {
+			Dialog.setMessage("Please wait...");
+			Dialog.show();
+		}
 		@Override
 		protected String doInBackground(String... params) {
 			String output = null;

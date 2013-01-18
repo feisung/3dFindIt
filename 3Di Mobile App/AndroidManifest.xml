@@ -42,9 +42,6 @@
             android:label="@string/app_search"
             android:launchMode="singleTop" >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-            <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
 

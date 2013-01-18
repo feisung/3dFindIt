@@ -23,6 +23,7 @@ import com.loopj.android.image.SmartImageView;
 
 import android.annotation.TargetApi;
 import android.app.ActionBar;
+import android.app.ProgressDialog;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
@@ -69,7 +70,7 @@ public class SearchActivity extends HomeActivity {
 		// Get data via the key
 		String UploadSearchResult = extras.getString("output");
 		if (UploadSearchResult != null) {
-			//Log.i(TAG, "Got Result Array: " + UploadSearchResult);
+			// Log.i(TAG, "Got Result Array: " + UploadSearchResult);
 			// here we point to the processing of results to UI
 			ExecutePostAsync executePost = new ExecutePostAsync();
 			executePost.SearchResultBuilder(UploadSearchResult);
@@ -82,14 +83,17 @@ public class SearchActivity extends HomeActivity {
 			Log.i(TAG, "The Search Term Entered: " + query);
 		}
 
+		doTextSearch(query);
+	}
+
+	protected void doTextSearch(String query) {
 		// We first check that the network is available before getting new
 		// content
 		if (GetContentIfNetworkAvailable() == true) {
 			// instantiate and execute AsyncTask
 			if (query != null) {
 				new ExecutePostAsync().execute(query);
-			}
-			else
+			} else
 				Log.i(TAG, "## Query is null");
 		}
 
@@ -97,6 +101,33 @@ public class SearchActivity extends HomeActivity {
 			Toast.makeText(this, "You don't seem to have Internet Access",
 					Toast.LENGTH_SHORT).show();
 			Log.e(TAG, "No Network");
+		}
+	}
+
+	@Override
+	protected void onNewIntent(Intent intent) {
+		// Because this activity has set launchMode="singleTop", the system
+		// calls this method
+		// to deliver the intent if this activity is currently the foreground
+		// activity when
+		// invoked again (when the user executes a search from this activity, we
+		// don't create
+		// a new instance of this activity, so the system delivers the search
+		// intent here)
+		handleIntent(intent);
+	}
+
+	private void handleIntent(Intent intent) {
+		if (Intent.ACTION_VIEW.equals(intent.getAction())) {
+			// handles a click on a search suggestion; launches activity to show
+			// word
+			Intent wordIntent = new Intent(this, SearchActivity.class);
+			wordIntent.setData(intent.getData());
+			startActivity(wordIntent);
+		} else if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+			// handles a search query
+			String query = intent.getStringExtra(SearchManager.QUERY);
+			doTextSearch(query);
 		}
 	}
 
@@ -123,6 +154,14 @@ public class SearchActivity extends HomeActivity {
 		/*
 		 * Background Task to get the data
 		 */
+
+		private ProgressDialog Dialog = new ProgressDialog(SearchActivity.this);
+
+		protected void onPreExecute() {
+			Dialog.setMessage("Please wait...");
+			Dialog.show();
+		}
+
 		@Override
 		protected String doInBackground(String... params) {
 			String output = null;
@@ -166,6 +205,15 @@ public class SearchActivity extends HomeActivity {
 
 		// Temporary public class to display results
 		public void SearchResultBuilder(String output) {
+
+			try {
+				if (Dialog.isShowing()) {
+					Dialog.dismiss();
+				}
+				// do your Display and data setting operation here
+			} catch (Exception e) {
+
+			}
 			ArrayList<SearchResults> results = Result(output);
 			Log.i(TAG, "#Loaded results Array: " + results);
 
@@ -201,7 +249,7 @@ public class SearchActivity extends HomeActivity {
 					// the first item, i.e. 0
 					String image1 = imageArray.getString(0);
 					// Now Show the images
-					Log.i(TAG, "The image to string: " + image1);
+					// Log.i(TAG, "The image to string: " + image1);
 
 					SearchResults result = new SearchResults(responseObject
 							.getString("product_name").toString(),
@@ -268,6 +316,11 @@ public class SearchActivity extends HomeActivity {
 						// image.setImageBitmap(getBitmap(searchResults.image_url));
 						Log.i(TAG, "*Bitmap: " + searchResults.image_url);
 					}
+				} else {
+					TextView product_name = (TextView) v
+							.findViewById(R.id.product_name);
+					product_name
+							.setText("Unfortunately No Matched Results, Please Retry.");
 				}
 				return v;
 			}
