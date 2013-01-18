@@ -69,7 +69,7 @@ public class SearchActivity extends HomeActivity {
 		// Get data via the key
 		String UploadSearchResult = extras.getString("output");
 		if (UploadSearchResult != null) {
-			Log.i(TAG, "Got Result Array: " + UploadSearchResult);
+			//Log.i(TAG, "Got Result Array: " + UploadSearchResult);
 			// here we point to the processing of results to UI
 			ExecutePostAsync executePost = new ExecutePostAsync();
 			executePost.SearchResultBuilder(UploadSearchResult);

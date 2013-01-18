@@ -59,9 +59,6 @@ public class IndustryActivity extends HomeActivity {
 			public void onItemClick(AdapterView<?> parent, View v,
 					int position, long id) {
 				openPage((String) adapter.getItem(position));
-				// Toast.makeText(HomeActivity.this, "" + position,
-				// Toast.LENGTH_SHORT).show();
-
 			}
 		});
 	}
