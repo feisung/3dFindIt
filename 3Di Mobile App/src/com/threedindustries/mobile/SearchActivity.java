@@ -5,8 +5,6 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -18,8 +16,8 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
-
-import com.loopj.android.image.SmartImageView;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import android.annotation.TargetApi;
 import android.app.ActionBar;
@@ -35,11 +33,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.loopj.android.image.SmartImageView;
 
 public class SearchActivity extends HomeActivity {
 	private static final String TAG = "Search Activity";
@@ -214,12 +217,29 @@ public class SearchActivity extends HomeActivity {
 			} catch (Exception e) {
 
 			}
-			ArrayList<SearchResults> results = Result(output);
+			final ArrayList<SearchResults> results = Result(output);
 			Log.i(TAG, "#Loaded results Array: " + results);
 
 			ListView listView = (ListView) findViewById(R.id.resultsListView);
 			listView.setAdapter(new ResultsItemAdepter(SearchActivity.this,
 					R.layout.listitem, results));
+			listView.setOnItemClickListener(new OnItemClickListener() {
+
+				public void onItemClick(AdapterView<?> parent, View view,
+						int position, long id) {
+					View searchResultsView = (View) findViewById(R.id.SearchResults);
+					View webView = (View) findViewById(R.id.webview);
+
+					SearchResults searchResults = results.get(position);
+					Log.i(TAG, "Clicked for URL: " + searchResults.product_url);
+
+					searchResultsView.setVisibility(View.GONE);
+					webView.setVisibility(View.VISIBLE);
+					WebView myWebView = (WebView) findViewById(R.id.webview);
+					myWebView.loadUrl(searchResults.product_url);
+				}
+
+			});
 		}
 
 		protected ArrayList<SearchResults> Result(String output) {
@@ -254,7 +274,8 @@ public class SearchActivity extends HomeActivity {
 					SearchResults result = new SearchResults(responseObject
 							.getString("product_name").toString(),
 							responseObject.get("product_description")
-									.toString(), image1);
+									.toString(), image1, responseObject
+									.getString("product_url").toString());
 					results.add(result);
 					Log.i(TAG,
 							"\n Product Name: "

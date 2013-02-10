@@ -49,6 +49,18 @@ public class IndustryActivity extends HomeActivity {
 		ActionBar actionBar = getActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
 
+		Bundle extras = getIntent().getExtras();
+		if (extras == null) {
+			return;
+		}
+		// Get data via the key
+		String shortcut = extras.getString("shortcut");
+		if (shortcut != null) {
+			//Go straight to the Uploading dialog
+			Log.i(TAG, "Opening Dialog from Shortcut");
+			UploadingStuff();
+		}
+
 		@SuppressWarnings("deprecation")
 		final Object data = getLastNonConfigurationInstance();
 		GridView gridview = (GridView) findViewById(R.id.gridview);
@@ -81,7 +93,11 @@ public class IndustryActivity extends HomeActivity {
 	}
 
 	public void Search(View view) {
+		//Start Uploading Dialog
+		UploadingStuff();
+	}
 
+	void UploadingStuff() {
 		Log.i(TAG, "Opening file Browser to select what to upload");
 		// Open File Browser Chooser
 		Intent intentBrowseFiles = new Intent(Intent.ACTION_GET_CONTENT);
@@ -153,13 +169,15 @@ public class IndustryActivity extends HomeActivity {
 		/*
 		 * Background Task to upload file and get the data
 		 */
-		
-		private ProgressDialog Dialog = new ProgressDialog(IndustryActivity.this);
+
+		private ProgressDialog Dialog = new ProgressDialog(
+				IndustryActivity.this);
 
 		protected void onPreExecute() {
 			Dialog.setMessage("Please wait...");
 			Dialog.show();
 		}
+
 		@Override
 		protected String doInBackground(String... params) {
 			String output = null;

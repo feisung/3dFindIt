@@ -1,18 +1,28 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/menu_settings"
-        android:title="@string/menu_settings"
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/menu_settings"
         android:orderInCategory="100"
-        android:showAsAction="never" />
-    
-  <item android:id="@+id/menu_search"
-   		android:icon="@drawable/action_search"
-   		android:title="Search"
+        android:showAsAction="never"
+        android:title="@string/menu_settings"/>
+    <item
+        android:id="@+id/menu_search"
+        android:actionViewClass="android.widget.SearchView"
+        android:icon="@drawable/action_search"
         android:showAsAction="always|collapseActionView"
-        android:actionViewClass="android.widget.SearchView"/>
-  <item android:id="@+id/menu_upload"
-        android:title="Upload"
-   		android:icon="@drawable/upload"
+        android:title="Search"
+        android:visible="true"/>
+    <item
+        android:id="@+id/menu_upload"
+        android:icon="@drawable/upload"
         android:orderInCategory="100"
-        android:showAsAction="ifRoom" /><item android:id="@+id/menu_info" android:title="About" android:icon="@drawable/about" android:showAsAction="ifRoom" />  
-    
+        android:showAsAction="always"
+        android:title="Upload"
+        android:visible="true"/>
+    <item
+        android:id="@+id/menu_info"
+        android:icon="@drawable/about"
+        android:showAsAction="never"
+        android:title="About"/>
+
 </menu>

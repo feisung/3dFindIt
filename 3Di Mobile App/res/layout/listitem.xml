@@ -9,9 +9,9 @@
 
     <com.loopj.android.image.SmartImageView
         android:id="@+id/preview_sec"
-        android:layout_width="wrap_content"
-        android:layout_height="fill_parent"
-        android:layout_marginRight="6dip"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginRight="3dip"
         android:src="@drawable/ic_launcher" />
 
     <LinearLayout
@@ -34,6 +34,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:maxLines="3"
             android:textColor="#FFFFFF" />
     </LinearLayout>
 

@@ -49,13 +49,17 @@ public class HomeActivity extends Activity {
     	//Handling the different menu items
 		switch (item.getItemId()){
 		case R.id.menu_search:
+			intent = new Intent(this, IndustryActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
 			onSearchRequested();
 			Log.i(TAG, "About to Search");
 	    	return true;
 		case R.id.menu_upload:
 			//go to Search Activity
             intent = new Intent(this, IndustryActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            intent.putExtra("shortcut", "true");
             startActivity(intent);
 	    	return true;		
 	    case android.R.id.home:
