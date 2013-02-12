@@ -161,8 +161,10 @@ public class SearchActivity extends HomeActivity {
 		private ProgressDialog Dialog = new ProgressDialog(SearchActivity.this);
 
 		protected void onPreExecute() {
-			Dialog.setMessage("Please wait...");
-			Dialog.show();
+			//Show progress screen
+			setContentView(R.layout.loading_view);
+			//Dialog.setMessage("Please wait...");
+			//Dialog.show();
 		}
 
 		@Override

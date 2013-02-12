@@ -8,209 +8,207 @@
     <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:fadeScrollbars="true"
+        android:fadingEdge="vertical"
+        android:fadingEdgeLength="20dp" >
 
         <LinearLayout
             android:id="@+id/LinearLayout1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
+            android:layout_marginTop="15dp"
             android:orientation="vertical" >
 
             <LinearLayout
-                android:id="@+id/FirstRow"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1" >
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:onClick="n3dps"
-                    android:orientation="vertical" >
-
-                    <ImageView
-                        android:id="@+id/ImageView03"
-                        android:layout_width="wrap_content"
-                        android:layout_height="158dp"
-                        android:layout_margin="10dp"
-                        android:src="@drawable/threedps_image" />
-
-                    <TextView
-                        android:id="@+id/TextView04"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:importantForAccessibility="auto"
-                        android:text="@string/threedps"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:textColor="@color/white"
-                        android:textColorHint="@color/white"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@color/grey_background"
-                    android:onClick="mechasource"
-                    android:orientation="vertical" >
-
-                    <ImageView
-                        android:id="@+id/ImageView02"
-                        android:layout_width="wrap_content"
-                        android:layout_height="158dp"
-                        android:layout_margin="10dp"
-                        android:src="@drawable/other_industry" />
-
-                    <TextView
-                        android:id="@+id/TextView03"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:importantForAccessibility="auto"
-                        android:text="@string/printsource"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:textColor="@color/white"
-                        android:textColorHint="@color/white"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/SecondRow"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                android:visibility="visible" >
-
-                <LinearLayout
-                    android:id="@+id/ind3"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="6dp"
-                    android:layout_weight="1"
-                    android:onClick="archisource"
-                    android:orientation="vertical" >
-
-                    <ImageView
-                        android:id="@+id/ImageView01"
-                        android:layout_width="wrap_content"
-                        android:layout_height="158dp"
-                        android:layout_gravity="center|fill"
-                        android:scaleType="centerInside"
-                        android:src="@drawable/archisource" />
-
-                    <TextView
-                        android:id="@+id/TextView01"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:importantForAccessibility="auto"
-                        android:text="@string/archisource"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:textColor="@color/white"
-                        android:textColorHint="@color/white"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/threedarchisource"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="6dp"
-                    android:layout_weight="1"
-                    android:onClick="scisource"
-                    android:orientation="vertical" >
-
-                    <ImageView
-                        android:id="@+id/imageView1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="158dp"
-                        android:src="@drawable/industry_four" />
-
-                    <TextView
-                        android:id="@+id/TextView02"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:importantForAccessibility="auto"
-                        android:text="@string/scisource"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:textColor="@color/white"
-                        android:textColorHint="@color/white"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/ThirdRow"
+                android:id="@+id/LinearLayout1"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginTop="10dp"
-                android:layout_weight="0.95"
+                android:layout_height="match_parent"
+                android:background="@color/blue"
+                android:onClick="n3dps"
                 android:orientation="horizontal" >
 
-                <LinearLayout
-                    android:id="@+id/LinearLayout02"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_margin="6dp"
-                    android:layout_weight="1"
-                    android:onClick="robosource"
-                    android:orientation="vertical" >
+                <ImageView
+                    android:id="@+id/ImageView03"
+                    android:layout_width="141dp"
+                    android:layout_height="90dp"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/threedps_image" />
 
-                    <ImageView
-                        android:id="@+id/ImageView05"
-                        android:layout_width="145dp"
-                        android:layout_height="158dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/robosource" />
+                <TextView
+                    android:id="@+id/TextView04"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:importantForAccessibility="auto"
+                    android:text="@string/threedps"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/TextView06"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:importantForAccessibility="auto"
-                        android:text="@string/archisource"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:textColor="@color/white"
-                        android:textColorHint="@color/white"
-                        android:textStyle="bold" />
-                </LinearLayout>
+            </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/LinearLayout01"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_margin="6dp"
-                    android:layout_weight="1"
-                    android:onClick="Gamesource"
-                    android:orientation="vertical" >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:layout_weight="1"
+                android:background="@color/blue"
+                android:onClick="mechasource"
+                android:orientation="horizontal" >
 
-                    <ImageView
-                        android:id="@+id/ImageView04"
-                        android:layout_width="match_parent"
-                        android:layout_height="158dp"
-                        android:src="@drawable/industry_six" />
+                <ImageView
+                    android:id="@+id/ImageView02"
+                    android:layout_width="141dp"
+                    android:layout_height="90dp"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/threed_printing" />
 
-                    <TextView
-                        android:id="@+id/TextView05"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:importantForAccessibility="auto"
-                        android:text="@string/gamesource"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:textColor="@color/white"
-                        android:textColorHint="@color/white"
-                        android:textStyle="bold" />
-                </LinearLayout>
+                <TextView
+                    android:id="@+id/TextView03"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:importantForAccessibility="auto"
+                    android:text="@string/printsource"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ind3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:layout_weight="1"
+                android:background="@color/blue"
+                android:onClick="archisource"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/ImageView01"
+                    android:layout_width="141dp"
+                    android:layout_height="90dp"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/archisource" />
+
+                <TextView
+                    android:id="@+id/TextView01"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:importantForAccessibility="auto"
+                    android:text="@string/archisource"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/threedarchisource"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:layout_weight="1"
+                android:background="@color/blue"
+                android:onClick="scisource"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/imageView1"
+                    android:layout_width="141dp"
+                    android:layout_height="90dp"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/industry_four" />
+
+                <TextView
+                    android:id="@+id/TextView02"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:importantForAccessibility="auto"
+                    android:text="@string/scisource"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/LinearLayout02"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:layout_weight="1"
+                android:background="@color/blue"
+                android:onClick="robosource"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/ImageView05"
+                    android:layout_width="141dp"
+                    android:layout_height="90dp"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/robosource" />
+
+                <TextView
+                    android:id="@+id/TextView06"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:importantForAccessibility="auto"
+                    android:text="@string/robosource"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/LinearLayout01"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:layout_weight="1"
+                android:background="@color/blue"
+                android:onClick="Gamesource"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/ImageView04"
+                    android:layout_width="141dp"
+                    android:layout_height="90dp"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/industry_six" />
+
+                <TextView
+                    android:id="@+id/TextView05"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:importantForAccessibility="auto"
+                    android:text="@string/gamesource"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

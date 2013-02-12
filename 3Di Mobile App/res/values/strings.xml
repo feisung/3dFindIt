@@ -7,16 +7,13 @@
     <string name="title_app">3D Find It</string>
     <string name="home">This is Home Activity</string>
     <string name="button2">Next Activity</string>
-    <color name="black">#000000</color>
     <string name="industry_home">Industry</string>
-    <color name="grey_background">#4d4c4e</color>
-    <color name="white">#FFFFFF</color>
-    <string name="threedps">3DPartsource</string>
-    <string name="archisource">3DArchisource</string>
-    <string name="printsource">3DPrintrource</string>
-    <string name="scisource">3DScisource</string>
-    <string name="gamesource">3DGamesource</string>
-    <string name="robosource">3DRobosource</string>
+    <string name="threedps">Industrial</string>
+    <string name="archisource">Architectural</string>
+    <string name="printsource">3D Printing</string>
+    <string name="scisource">Science</string>
+    <string name="gamesource">Gaming</string>
+    <string name="robosource">Robotics</string>
     <string name="textsearch">Your Text Search</string>
     <string name="app_search">3D Search</string>
     <string name="upload">Upload a model</string>
@@ -27,4 +24,10 @@
     <string name="part_title">Part Title</string>
     <string name="prod_descript">PRODUCT DESCRIPTION</string>
 
+    <!-- Colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="grey_background">#4d4c4e</color>
+    <color name="blue">#00adee</color>
+    
 </resources>
