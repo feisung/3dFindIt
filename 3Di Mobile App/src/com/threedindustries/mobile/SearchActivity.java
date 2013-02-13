@@ -201,6 +201,7 @@ public class SearchActivity extends HomeActivity {
 		}
 
 		protected void onPostExecute(String output) {
+			setContentView(R.layout.search_activity);
 
 			SearchResultBuilder(output);
 			// Update the View to show the results
