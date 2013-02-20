@@ -3,15 +3,16 @@
     android:id="@+id/ScrollView1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grey_background" >
+    android:background="@color/grey_background"
+    android:overScrollMode="always" >
 
     <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fadeScrollbars="true"
-        android:fadingEdge="vertical"
-        android:fadingEdgeLength="20dp" >
+        android:fadingEdgeLength="20dp"
+        android:overScrollMode="always" >
 
         <LinearLayout
             android:id="@+id/LinearLayout1"

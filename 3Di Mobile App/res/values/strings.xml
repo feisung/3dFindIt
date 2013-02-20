@@ -8,8 +8,8 @@
     <string name="home">This is Home Activity</string>
     <string name="button2">Next Activity</string>
     <string name="industry_home">Industry</string>
-    <string name="threedps">Industrial</string>
-    <string name="archisource">Architectural</string>
+    <string name="threedps">Manufacturing</string>
+    <string name="archisource">Architecture</string>
     <string name="printsource">3D Printing</string>
     <string name="scisource">Science</string>
     <string name="gamesource">Gaming</string>
@@ -29,5 +29,7 @@
     <color name="black">#000000</color>
     <color name="grey_background">#4d4c4e</color>
     <color name="blue">#00adee</color>
+    <string name="title_facts">Interesting Facts</string>
+    <string name="facts_text">3D Printing is a revolutionary method of creating 3D models that accelerates the design and prototyping process.</string>
     
 </resources>

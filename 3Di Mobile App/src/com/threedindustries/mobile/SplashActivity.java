@@ -27,7 +27,8 @@ public class SplashActivity extends Activity {
         			sleep(100);
         			logoTimer = logoTimer + 100;
         		}
-        		startActivity(new Intent(SplashActivity.this, HomeActivity.class));
+        		startActivity(new Intent(SplashActivity.this, IndustryActivity.class));
+//        		startActivity(new Intent(SplashActivity.this, HomeActivity.class));
         	}
         	catch (InterruptedException e){
         		e.printStackTrace();

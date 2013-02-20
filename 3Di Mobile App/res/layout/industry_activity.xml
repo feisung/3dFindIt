@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:layout_alignParentBottom="true"
+        android:background="@color/white"
         android:orientation="vertical" >
 
         <LinearLayout
@@ -26,33 +27,41 @@
                 android:layout_marginTop="10dp"
                 android:text="@string/trysearch"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textColorHint="@color/white"
                 android:textColorLink="@color/white"
                 android:textSize="30dp" />
 
-            <GridView
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                android:id="@+id/gridview"
-                android:layout_width="fill_parent"
-                android:layout_height="168dp"
-                android:layout_marginBottom="30dp"
-                android:layout_marginTop="10dp"
-                android:layout_weight="0.90"
-                android:gravity="center"
-                android:horizontalSpacing="0dp"
-                android:numColumns="3"
-                android:stretchMode="columnWidth"
-                android:verticalSpacing="0dp" >
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/black" >
 
-            </GridView>
+                <GridView
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/gridview"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="0.90"
+                    android:gravity="center"
+                    android:horizontalSpacing="0dp"
+                    android:numColumns="3"
+                    android:stretchMode="columnWidth"
+                    android:verticalSpacing="0dp" >
+                </GridView>
+            </FrameLayout>
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/LinearLayout1"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight="0.62"
             android:onClick="Search"
             android:orientation="vertical" >
 
@@ -72,11 +81,9 @@
                 android:layout_weight="0.23"
                 android:text="@string/upload_search"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="30dp" />
-
         </LinearLayout>
-
     </LinearLayout>
 
 </RelativeLayout>

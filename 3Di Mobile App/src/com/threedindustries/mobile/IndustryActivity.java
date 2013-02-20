@@ -3,6 +3,7 @@ package com.threedindustries.mobile;
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -13,6 +14,7 @@ import org.apache.http.entity.mime.MultipartEntity;
 import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
+
 import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.ProgressDialog;
@@ -24,9 +26,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class IndustryActivity extends HomeActivity {
 
@@ -45,9 +48,42 @@ public class IndustryActivity extends HomeActivity {
 		Log.i(TAG, "OnCreate");
 
 		setContentView(R.layout.industry_activity);
-		// Enable navigating up
+
+		GridView gridview = (GridView) findViewById(R.id.gridview);
+		gridview.setAdapter(new ImageAdapter(IndustryActivity.this));
+
+		gridview.setOnItemClickListener(new OnItemClickListener() {
+			public void onItemClick(AdapterView<?> parent, View v,
+					int position, long id) {
+				Log.i(TAG, "OnClick GridView");
+				Intent search = new Intent(IndustryActivity.this,
+						SearchActivity.class);
+				//Toast.makeText(IndustryActivity.this, "" + position,
+					//	Toast.LENGTH_SHORT).show();
+				switch (position) {
+				case 0:
+					search.putExtra("doText", "Flow Control Equipment");
+					startActivity(search);
+					break;
+				case 1:
+					search.putExtra("doText", "Chain");
+					startActivity(search);
+					break;
+				case 2:
+					search.putExtra("doText", "Actuators");
+					startActivity(search);
+					break;
+				case 3:
+					search.putExtra("doText", "Aluminum End Support Block");
+					startActivity(search);
+					break;
+				}
+
+				// openPage((String) adapter.getItem(position));
+			}
+		}); // Enable navigating up
 		ActionBar actionBar = getActionBar();
-		actionBar.setDisplayHomeAsUpEnabled(true);
+		actionBar.setDisplayHomeAsUpEnabled(false); //Set to true if re-enabling home
 
 		Bundle extras = getIntent().getExtras();
 		if (extras == null) {
@@ -56,24 +92,10 @@ public class IndustryActivity extends HomeActivity {
 		// Get data via the key
 		String shortcut = extras.getString("shortcut");
 		if (shortcut != null) {
-			//Go straight to the Uploading dialog
+			// Go straight to the Uploading dialog
 			Log.i(TAG, "Opening Dialog from Shortcut");
 			UploadingStuff();
 		}
-
-		@SuppressWarnings("deprecation")
-		final Object data = getLastNonConfigurationInstance();
-		GridView gridview = (GridView) findViewById(R.id.gridview);
-		adapter = new ImageAdapter(this, data);
-		gridview.setAdapter(adapter);
-
-		gridview.setOnItemClickListener(new OnItemClickListener() {
-
-			public void onItemClick(AdapterView<?> parent, View v,
-					int position, long id) {
-				openPage((String) adapter.getItem(position));
-			}
-		});
 	}
 
 	public void openPage(String url) {
@@ -93,7 +115,7 @@ public class IndustryActivity extends HomeActivity {
 	}
 
 	public void Search(View view) {
-		//Start Uploading Dialog
+		// Start Uploading Dialog
 		UploadingStuff();
 	}
 
@@ -174,8 +196,10 @@ public class IndustryActivity extends HomeActivity {
 				IndustryActivity.this);
 
 		protected void onPreExecute() {
-			Dialog.setMessage("Please wait...");
-			Dialog.show();
+			// Show progress screen
+			setContentView(R.layout.loading_view);
+			// Dialog.setMessage("Please wait...");
+			// Dialog.show();
 		}
 
 		@Override
@@ -202,7 +226,7 @@ public class IndustryActivity extends HomeActivity {
 
 				HttpEntity httpEntity = response.getEntity();
 				output = EntityUtils.toString(httpEntity);
-				// Log.i(TAG, "The Output is" + output); //For Debug
+				 Log.i(TAG, "The Output is" + output); //For Debug
 
 			} catch (UnsupportedEncodingException e) {
 				e.printStackTrace();
@@ -220,6 +244,7 @@ public class IndustryActivity extends HomeActivity {
 			Intent search = new Intent(IndustryActivity.this,
 					SearchActivity.class);
 			search.putExtra("output", output);
+			Log.i(TAG, "Intent Extra passed= " + output);
 			startActivity(search);
 			// Log.i(TAG, "Passed Intent Extra");
 		}

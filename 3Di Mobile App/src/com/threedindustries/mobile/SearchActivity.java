@@ -59,7 +59,7 @@ public class SearchActivity extends HomeActivity {
 		setContentView(R.layout.search_activity);
 		// Enable navigating up
 		ActionBar actionBar = getActionBar();
-		actionBar.setDisplayHomeAsUpEnabled(true);
+		actionBar.setDisplayHomeAsUpEnabled(false);	//set true for home dashboard link
 
 		/**
 		 * TODO: Add Argument for when the correct Upload Search Result Array is
@@ -71,12 +71,18 @@ public class SearchActivity extends HomeActivity {
 			return;
 		}
 		// Get data via the key
+		String UploadSimulation = extras.getString("doText");
 		String UploadSearchResult = extras.getString("output");
 		if (UploadSearchResult != null) {
+			Log.i(TAG, "Performing UploadQuery");
 			// Log.i(TAG, "Got Result Array: " + UploadSearchResult);
 			// here we point to the processing of results to UI
 			ExecutePostAsync executePost = new ExecutePostAsync();
 			executePost.SearchResultBuilder(UploadSearchResult);
+		}
+		if (UploadSimulation != null) {
+			Log.i(TAG, "Simulating Upload Query");
+			doTextSearch(UploadSimulation);
 		}
 		// Handler for search field in UI
 		// Get the intent, verify the action and get the query
@@ -161,10 +167,10 @@ public class SearchActivity extends HomeActivity {
 		private ProgressDialog Dialog = new ProgressDialog(SearchActivity.this);
 
 		protected void onPreExecute() {
-			//Show progress screen
+			// Show progress screen
 			setContentView(R.layout.loading_view);
-			//Dialog.setMessage("Please wait...");
-			//Dialog.show();
+			// Dialog.setMessage("Please wait...");
+			// Dialog.show();
 		}
 
 		@Override
@@ -221,7 +227,7 @@ public class SearchActivity extends HomeActivity {
 
 			}
 			final ArrayList<SearchResults> results = Result(output);
-			Log.i(TAG, "#Loaded results Array: " + results);
+			//Log.i(TAG, "#Loaded results Array: " + results);
 
 			ListView listView = (ListView) findViewById(R.id.resultsListView);
 			listView.setAdapter(new ResultsItemAdepter(SearchActivity.this,
@@ -234,12 +240,16 @@ public class SearchActivity extends HomeActivity {
 					View webView = (View) findViewById(R.id.webview);
 
 					SearchResults searchResults = results.get(position);
-					Log.i(TAG, "Clicked for URL: " + searchResults.product_url);
+					// Log.i(TAG, "Clicked for URL: " +
+					// searchResults.product_url);
 
 					searchResultsView.setVisibility(View.GONE);
 					webView.setVisibility(View.VISIBLE);
 					WebView myWebView = (WebView) findViewById(R.id.webview);
 					myWebView.loadUrl(searchResults.product_url);
+					// Temporarily linking user to 3dpartsource site uncomment
+					// line above to enable direct link to product clicked
+					// myWebView.loadUrl("http://www.3dpartsource.com");
 				}
 
 			});
