@@ -125,6 +125,14 @@ public class SearchActivity extends HomeActivity {
 		// intent here)
 		handleIntent(intent);
 	}
+	
+	@Override
+	public void onBackPressed() {
+	   Log.d(TAG, "onBackPressed Called");
+	   Intent setIntent = new Intent(this, IndustryActivity.class);
+	   setIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+	   startActivity(setIntent);
+	}
 
 	private void handleIntent(Intent intent) {
 		if (Intent.ACTION_VIEW.equals(intent.getAction())) {
